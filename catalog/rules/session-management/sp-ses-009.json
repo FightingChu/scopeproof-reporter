@@ -1,0 +1,20 @@
+{
+  "id": "SP-SES-009",
+  "family": "session-management",
+  "title": "Administrator Session expires and revokes predictably",
+  "default_severity": "high",
+  "summary": "Review whether the administrator session expires and revokes predictably using supplied offline evidence.",
+  "expected": "Idle, absolute, logout, and administrative revocation paths end authorization as documented.",
+  "impact": "Overlong or nonrevocable sessions extend the window for unauthorized reuse.",
+  "remediation": "Enforce bounded lifetimes and server-side revocation for sensitive sessions.",
+  "evidence_fields": [
+    "timeline",
+    "response-series",
+    "policy"
+  ],
+  "tags": [
+    "session-management",
+    "administrator-session",
+    "expires"
+  ]
+}

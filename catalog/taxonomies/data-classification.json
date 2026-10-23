@@ -1,0 +1,12 @@
+{
+  "name": "data-classification",
+  "version": 1,
+  "description": "Controlled vocabulary for data classification fields in ScopeProof records.",
+  "values": [
+    "public",
+    "internal",
+    "confidential",
+    "restricted",
+    "secret"
+  ]
+}

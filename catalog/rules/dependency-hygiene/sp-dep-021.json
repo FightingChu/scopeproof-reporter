@@ -1,0 +1,20 @@
+{
+  "id": "SP-DEP-021",
+  "family": "dependency-hygiene",
+  "title": "Code Generator has an update and removal owner",
+  "default_severity": "medium",
+  "summary": "Review whether the code generator has an update and removal owner using supplied offline evidence.",
+  "expected": "The code generator has an owner who reviews advisories, compatibility, and retirement.",
+  "impact": "Unowned dependencies can remain vulnerable or unsupported indefinitely.",
+  "remediation": "Assign ownership and a recurring update window with removal criteria.",
+  "evidence_fields": [
+    "ownership",
+    "inventory",
+    "review-record"
+  ],
+  "tags": [
+    "dependency-hygiene",
+    "code-generator",
+    "has"
+  ]
+}

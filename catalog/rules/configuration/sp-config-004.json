@@ -1,0 +1,20 @@
+{
+  "id": "SP-CONFIG-004",
+  "family": "configuration",
+  "title": "Application Runtime loads secrets from an approved source",
+  "default_severity": "critical",
+  "summary": "Review whether the application runtime loads secrets from an approved source using supplied offline evidence.",
+  "expected": "The application runtime obtains credentials from the approved secret source without committed or echoed values.",
+  "impact": "Embedded or printed credentials can spread through source, builds, and logs.",
+  "remediation": "Use the platform secret provider and prevent secret values from entering output.",
+  "evidence_fields": [
+    "configuration",
+    "startup-result",
+    "log-sample"
+  ],
+  "tags": [
+    "configuration",
+    "application-runtime",
+    "loads"
+  ]
+}

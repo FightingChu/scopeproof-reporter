@@ -1,0 +1,17 @@
+{
+  "id": "profile-bulk-import",
+  "version": 1,
+  "title": "Bulk import review",
+  "purpose": "Selects relevant review families for a scoped bulk import review without performing active tests.",
+  "families": [
+    "input-validation",
+    "file-handling",
+    "api-contracts",
+    "workflow-integrity",
+    "availability-controls",
+    "security-logging"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

@@ -1,0 +1,20 @@
+{
+  "id": "SP-DEP-014",
+  "family": "dependency-hygiene",
+  "title": "Cli Package comes from an approved source",
+  "default_severity": "high",
+  "summary": "Review whether the CLI package comes from an approved source using supplied offline evidence.",
+  "expected": "The CLI package's source, publisher, and integrity metadata match the approved registry or repository.",
+  "impact": "Source confusion can replace a dependency with an unintended artifact.",
+  "remediation": "Restrict repositories, verify integrity metadata, and retain provenance records.",
+  "evidence_fields": [
+    "manifest",
+    "provenance",
+    "build-record"
+  ],
+  "tags": [
+    "dependency-hygiene",
+    "CLI-package",
+    "comes"
+  ]
+}

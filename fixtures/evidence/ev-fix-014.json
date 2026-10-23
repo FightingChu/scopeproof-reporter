@@ -1,0 +1,13 @@
+{
+  "id": "EV-FIX-014",
+  "rule_id": "SP-CONFIG-002",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-14T14:00:00Z",
+  "status": "not-observed",
+  "summary": "Synthetic configuration observation 014",
+  "observation": "The offline fixture records a not-observed review result for application runtime uses a production-safe default on the reserved example asset.",
+  "reproduction": [],
+  "request": "GET /assessment-fixture/014 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 014",
+  "confidence": "medium"
+}

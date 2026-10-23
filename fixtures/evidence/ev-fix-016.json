@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-016",
+  "rule_id": "SP-FLOW-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-16T16:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic workflow-integrity observation 016",
+  "observation": "The offline fixture records a confirmed review result for approval workflow enforces required step order on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-016 for rule SP-FLOW-001.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/016 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 016",
+  "confidence": "high"
+}

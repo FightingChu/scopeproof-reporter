@@ -1,0 +1,15 @@
+{
+  "id": "EV-FIX-015",
+  "rule_id": "SP-DEP-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-15T15:00:00Z",
+  "status": "needs-review",
+  "summary": "Synthetic dependency-hygiene observation 015",
+  "observation": "The offline fixture records a needs-review review result for runtime library has a reviewable version constraint on the reserved example asset.",
+  "reproduction": [
+    "Request owner confirmation for the referenced configuration excerpt."
+  ],
+  "request": "GET /assessment-fixture/015 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 015",
+  "confidence": "low"
+}

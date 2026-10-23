@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-004",
+  "rule_id": "SP-HDR-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-04T04:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic response-headers observation 004",
+  "observation": "The offline fixture records a confirmed review result for html document declares a content handling policy on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-004 for rule SP-HDR-001.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/004 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 004",
+  "confidence": "high"
+}

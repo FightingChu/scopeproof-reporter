@@ -1,0 +1,19 @@
+{
+  "id": "SP-HDR-006",
+  "family": "response-headers",
+  "title": "Authentication Response sets an intentional cache policy",
+  "default_severity": "medium",
+  "summary": "Review whether the authentication response sets an intentional cache policy using supplied offline evidence.",
+  "expected": "Sensitive or user-specific responses declare a cache policy consistent with their data classification.",
+  "impact": "Shared or persistent caches can retain sensitive response content beyond the session.",
+  "remediation": "Apply private or no-store directives to sensitive content and test intermediary behavior.",
+  "evidence_fields": [
+    "response",
+    "data-classification"
+  ],
+  "tags": [
+    "response-headers",
+    "authentication-response",
+    "sets"
+  ]
+}

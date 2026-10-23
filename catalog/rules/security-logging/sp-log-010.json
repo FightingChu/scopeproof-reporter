@@ -1,0 +1,19 @@
+{
+  "id": "SP-LOG-010",
+  "family": "security-logging",
+  "title": "Credential Change records the decision context",
+  "default_severity": "medium",
+  "summary": "Review whether the credential change records the decision context using supplied offline evidence.",
+  "expected": "The event records time, actor, action, target, outcome, and correlation context where applicable.",
+  "impact": "Incomplete events hinder incident reconstruction and control monitoring.",
+  "remediation": "Emit a structured event at the decision point with stable field names.",
+  "evidence_fields": [
+    "event-sample",
+    "event-schema"
+  ],
+  "tags": [
+    "security-logging",
+    "credential-change",
+    "records"
+  ]
+}

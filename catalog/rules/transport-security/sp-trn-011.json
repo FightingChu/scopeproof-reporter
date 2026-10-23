@@ -1,0 +1,19 @@
+{
+  "id": "SP-TRN-011",
+  "family": "transport-security",
+  "title": "Webhook Receiver uses an approved protocol policy",
+  "default_severity": "medium",
+  "summary": "Review whether the webhook receiver uses an approved protocol policy using supplied offline evidence.",
+  "expected": "The webhook receiver evidence shows only the organization's approved protocol and cipher policy.",
+  "impact": "Obsolete transport settings can weaken confidentiality or integrity guarantees.",
+  "remediation": "Apply the current transport baseline and retest every exposed listener.",
+  "evidence_fields": [
+    "transport-observation",
+    "configuration"
+  ],
+  "tags": [
+    "transport-security",
+    "webhook-receiver",
+    "uses"
+  ]
+}

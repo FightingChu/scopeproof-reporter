@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-001",
+  "rule_id": "SP-AUTH-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-01T01:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic authentication observation 001",
+  "observation": "The offline fixture records a confirmed review result for login response account disclosure on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-001 for rule SP-AUTH-001.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/001 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 001",
+  "confidence": "high"
+}

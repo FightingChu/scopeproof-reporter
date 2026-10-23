@@ -1,0 +1,10 @@
+{
+  "name": "confidence",
+  "version": 1,
+  "description": "Controlled vocabulary for confidence fields in ScopeProof records.",
+  "values": [
+    "high",
+    "medium",
+    "low"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "SP-AVL-020",
+  "family": "availability-controls",
+  "title": "Authentication Request uses bounded retry behavior",
+  "default_severity": "medium",
+  "summary": "Review whether the authentication request uses bounded retry behavior using supplied offline evidence.",
+  "expected": "The authentication request caps attempts and delay while distinguishing retryable from permanent failures.",
+  "impact": "Unbounded retries can amplify outages and overload dependencies.",
+  "remediation": "Use capped exponential backoff, jitter, and a terminal failure path.",
+  "evidence_fields": [
+    "job-history",
+    "retry-policy"
+  ],
+  "tags": [
+    "availability-controls",
+    "authentication-request",
+    "uses"
+  ]
+}

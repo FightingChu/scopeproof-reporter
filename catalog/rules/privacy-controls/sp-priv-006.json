@@ -1,0 +1,19 @@
+{
+  "id": "SP-PRIV-006",
+  "family": "privacy-controls",
+  "title": "Contact Preference limits disclosure in reports",
+  "default_severity": "high",
+  "summary": "Review whether the contact preference limits disclosure in reports using supplied offline evidence.",
+  "expected": "The contact preference is minimized or masked before inclusion in operational and assessment reports.",
+  "impact": "Reports can create durable secondary copies with broad readership.",
+  "remediation": "Use field allowlists, masking, and audience-specific report sections.",
+  "evidence_fields": [
+    "report-sample",
+    "data-classification"
+  ],
+  "tags": [
+    "privacy-controls",
+    "contact-preference",
+    "limits"
+  ]
+}

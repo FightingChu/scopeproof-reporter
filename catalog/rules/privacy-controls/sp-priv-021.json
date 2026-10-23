@@ -1,0 +1,19 @@
+{
+  "id": "SP-PRIV-021",
+  "family": "privacy-controls",
+  "title": "Deletion Request limits disclosure in reports",
+  "default_severity": "high",
+  "summary": "Review whether the deletion request limits disclosure in reports using supplied offline evidence.",
+  "expected": "The deletion request is minimized or masked before inclusion in operational and assessment reports.",
+  "impact": "Reports can create durable secondary copies with broad readership.",
+  "remediation": "Use field allowlists, masking, and audience-specific report sections.",
+  "evidence_fields": [
+    "report-sample",
+    "data-classification"
+  ],
+  "tags": [
+    "privacy-controls",
+    "deletion-request",
+    "limits"
+  ]
+}

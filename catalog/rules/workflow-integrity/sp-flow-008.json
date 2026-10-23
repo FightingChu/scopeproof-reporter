@@ -1,0 +1,20 @@
+{
+  "id": "SP-FLOW-008",
+  "family": "workflow-integrity",
+  "title": "Account Invitation prevents duplicate completion",
+  "default_severity": "high",
+  "summary": "Review whether the account invitation prevents duplicate completion using supplied offline evidence.",
+  "expected": "The account invitation detects replay or duplicate completion without applying effects twice.",
+  "impact": "Repeated effects can corrupt records or duplicate sensitive actions.",
+  "remediation": "Use a durable completion key and make terminal transitions idempotent.",
+  "evidence_fields": [
+    "request-series",
+    "state-before",
+    "state-after"
+  ],
+  "tags": [
+    "workflow-integrity",
+    "account-invitation",
+    "prevents"
+  ]
+}

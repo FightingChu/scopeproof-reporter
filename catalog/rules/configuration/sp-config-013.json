@@ -1,0 +1,20 @@
+{
+  "id": "SP-CONFIG-013",
+  "family": "configuration",
+  "title": "Scheduled Job loads secrets from an approved source",
+  "default_severity": "critical",
+  "summary": "Review whether the scheduled job loads secrets from an approved source using supplied offline evidence.",
+  "expected": "The scheduled job obtains credentials from the approved secret source without committed or echoed values.",
+  "impact": "Embedded or printed credentials can spread through source, builds, and logs.",
+  "remediation": "Use the platform secret provider and prevent secret values from entering output.",
+  "evidence_fields": [
+    "configuration",
+    "startup-result",
+    "log-sample"
+  ],
+  "tags": [
+    "configuration",
+    "scheduled-job",
+    "loads"
+  ]
+}

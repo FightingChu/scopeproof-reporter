@@ -1,0 +1,20 @@
+{
+  "id": "SP-IN-012",
+  "family": "input-validation",
+  "title": "Path Segment keeps data separate from interpreters",
+  "default_severity": "high",
+  "summary": "Review whether the path segment keeps data separate from interpreters using supplied offline evidence.",
+  "expected": "The path segment remains data when used by queries, templates, commands, or expression engines.",
+  "impact": "Interpreter confusion can alter downstream operations or disclose data.",
+  "remediation": "Use parameterized APIs and context-specific escaping rather than string composition.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "sink-context"
+  ],
+  "tags": [
+    "input-validation",
+    "path-segment",
+    "keeps"
+  ]
+}

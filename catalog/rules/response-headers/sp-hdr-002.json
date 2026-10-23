@@ -1,0 +1,19 @@
+{
+  "id": "SP-HDR-002",
+  "family": "response-headers",
+  "title": "Html Document limits framing and embedding",
+  "default_severity": "medium",
+  "summary": "Review whether the HTML document limits framing and embedding using supplied offline evidence.",
+  "expected": "The response defines which trusted parents, if any, may frame the content.",
+  "impact": "Unrestricted framing can support deceptive interface overlays and unintended interaction.",
+  "remediation": "Set an explicit frame-ancestor policy that matches the approved embedding design.",
+  "evidence_fields": [
+    "response",
+    "ui-context"
+  ],
+  "tags": [
+    "response-headers",
+    "HTML-document",
+    "limits"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "environment",
+  "version": 1,
+  "description": "Controlled vocabulary for environment fields in ScopeProof records.",
+  "values": [
+    "development",
+    "test",
+    "staging",
+    "production",
+    "recovery"
+  ]
+}

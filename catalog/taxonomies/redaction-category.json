@@ -1,0 +1,15 @@
+{
+  "name": "redaction-category",
+  "version": 1,
+  "description": "Controlled vocabulary for redaction category fields in ScopeProof records.",
+  "values": [
+    "bearer",
+    "cookie",
+    "password",
+    "api-key",
+    "access-token",
+    "refresh-token",
+    "secret",
+    "private-key"
+  ]
+}

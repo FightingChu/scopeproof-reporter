@@ -1,0 +1,20 @@
+{
+  "id": "SP-DATA-017",
+  "family": "data-protection",
+  "title": "Audit Record protects stored values",
+  "default_severity": "high",
+  "summary": "Review whether the audit record protects stored values using supplied offline evidence.",
+  "expected": "The audit record uses approved storage protection and access controls for its classification.",
+  "impact": "Weak storage controls can expose sensitive records after another boundary fails.",
+  "remediation": "Apply approved encryption or irreversible transformation and restrict data access.",
+  "evidence_fields": [
+    "configuration",
+    "access-policy",
+    "data-sample"
+  ],
+  "tags": [
+    "data-protection",
+    "audit-record",
+    "protects"
+  ]
+}

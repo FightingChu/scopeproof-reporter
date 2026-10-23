@@ -1,0 +1,15 @@
+{
+  "id": "EV-FIX-036",
+  "rule_id": "SP-HDR-003",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-08T16:00:00Z",
+  "status": "needs-review",
+  "summary": "Synthetic response-headers observation 036",
+  "observation": "The offline fixture records a needs-review review result for html document sets an intentional cache policy on the reserved example asset.",
+  "reproduction": [
+    "Request owner confirmation for the referenced configuration excerpt."
+  ],
+  "request": "GET /assessment-fixture/036 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 036",
+  "confidence": "low"
+}

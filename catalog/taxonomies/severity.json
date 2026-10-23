@@ -1,0 +1,12 @@
+{
+  "name": "severity",
+  "version": 1,
+  "description": "Controlled vocabulary for severity fields in ScopeProof records.",
+  "values": [
+    "critical",
+    "high",
+    "medium",
+    "low",
+    "info"
+  ]
+}

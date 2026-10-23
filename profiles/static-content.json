@@ -1,0 +1,16 @@
+{
+  "id": "profile-static-content",
+  "version": 1,
+  "title": "Static content delivery review",
+  "purpose": "Selects relevant review families for a scoped static content delivery review without performing active tests.",
+  "families": [
+    "transport-security",
+    "response-headers",
+    "output-encoding",
+    "configuration",
+    "dependency-hygiene"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

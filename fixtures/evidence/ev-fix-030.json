@@ -1,0 +1,15 @@
+{
+  "id": "EV-FIX-030",
+  "rule_id": "SP-CONFIG-003",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-02T10:00:00Z",
+  "status": "needs-review",
+  "summary": "Synthetic configuration observation 030",
+  "observation": "The offline fixture records a needs-review review result for application runtime keeps diagnostic detail private on the reserved example asset.",
+  "reproduction": [
+    "Request owner confirmation for the referenced configuration excerpt."
+  ],
+  "request": "GET /assessment-fixture/030 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 030",
+  "confidence": "low"
+}

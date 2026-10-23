@@ -1,0 +1,16 @@
+{
+  "id": "profile-release-pipeline",
+  "version": 1,
+  "title": "Release pipeline review",
+  "purpose": "Selects relevant review families for a scoped release pipeline review without performing active tests.",
+  "families": [
+    "authorization",
+    "configuration",
+    "dependency-hygiene",
+    "workflow-integrity",
+    "security-logging"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

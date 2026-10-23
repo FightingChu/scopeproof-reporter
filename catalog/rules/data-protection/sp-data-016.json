@@ -1,0 +1,20 @@
+{
+  "id": "SP-DATA-016",
+  "family": "data-protection",
+  "title": "Audit Record collects only required values",
+  "default_severity": "medium",
+  "summary": "Review whether the audit record collects only required values using supplied offline evidence.",
+  "expected": "The audit record contains only fields needed for the documented business purpose.",
+  "impact": "Excess collection increases disclosure impact and retention obligations.",
+  "remediation": "Remove unused fields and document the purpose and owner of retained values.",
+  "evidence_fields": [
+    "data-sample",
+    "data-classification",
+    "purpose"
+  ],
+  "tags": [
+    "data-protection",
+    "audit-record",
+    "collects"
+  ]
+}

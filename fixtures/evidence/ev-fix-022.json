@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-022",
+  "rule_id": "SP-SES-002",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-22T02:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic session-management observation 022",
+  "observation": "The offline fixture records a confirmed review result for browser session rotates after privilege change on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-022 for rule SP-SES-002.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/022 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 022",
+  "confidence": "high"
+}

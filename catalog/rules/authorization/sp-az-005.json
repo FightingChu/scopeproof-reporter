@@ -1,0 +1,20 @@
+{
+  "id": "SP-AZ-005",
+  "family": "authorization",
+  "title": "Billing Record enforces role boundaries",
+  "default_severity": "high",
+  "summary": "Review whether the billing record enforces role boundaries using supplied offline evidence.",
+  "expected": "Privileged operations reject identities without the required role or capability.",
+  "impact": "Weak role checks can expose administrative or operational functions.",
+  "remediation": "Centralize function authorization and test each privilege boundary with negative cases.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "role-context"
+  ],
+  "tags": [
+    "authorization",
+    "billing-record",
+    "enforces"
+  ]
+}

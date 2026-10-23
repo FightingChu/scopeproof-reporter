@@ -1,0 +1,20 @@
+{
+  "id": "SP-PRIV-013",
+  "family": "privacy-controls",
+  "title": "Support Record states and enforces its purpose",
+  "default_severity": "medium",
+  "summary": "Review whether the support record states and enforces its purpose using supplied offline evidence.",
+  "expected": "The support record has a specific documented use and is not silently reused outside that purpose.",
+  "impact": "Purpose drift can expose personal data to unexpected processing.",
+  "remediation": "Record the purpose and enforce access and downstream-use boundaries.",
+  "evidence_fields": [
+    "purpose",
+    "data-sample",
+    "access-policy"
+  ],
+  "tags": [
+    "privacy-controls",
+    "support-record",
+    "states"
+  ]
+}

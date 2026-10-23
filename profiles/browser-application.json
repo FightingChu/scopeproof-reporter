@@ -1,0 +1,18 @@
+{
+  "id": "profile-browser-application",
+  "version": 1,
+  "title": "Browser application review",
+  "purpose": "Selects relevant review families for a scoped browser application review without performing active tests.",
+  "families": [
+    "transport-security",
+    "response-headers",
+    "authentication",
+    "session-management",
+    "authorization",
+    "input-validation",
+    "output-encoding"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

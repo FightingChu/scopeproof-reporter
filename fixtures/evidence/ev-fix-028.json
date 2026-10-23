@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-028",
+  "rule_id": "SP-DATA-002",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-28T08:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic data-protection observation 028",
+  "observation": "The offline fixture records a confirmed review result for account identifier protects stored values on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-028 for rule SP-DATA-002.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/028 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 028",
+  "confidence": "high"
+}

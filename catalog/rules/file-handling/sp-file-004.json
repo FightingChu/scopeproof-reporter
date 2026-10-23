@@ -1,0 +1,20 @@
+{
+  "id": "SP-FILE-004",
+  "family": "file-handling",
+  "title": "Image Upload validates content independently of the name",
+  "default_severity": "high",
+  "summary": "Review whether the image upload validates content independently of the name using supplied offline evidence.",
+  "expected": "The image upload validates its actual format and accepted structure instead of trusting an extension alone.",
+  "impact": "Misclassified content can reach unsafe processors or active delivery paths.",
+  "remediation": "Inspect content with an allowlisted parser and reject inconsistent metadata.",
+  "evidence_fields": [
+    "file-metadata",
+    "parser-result",
+    "response"
+  ],
+  "tags": [
+    "file-handling",
+    "image-upload",
+    "validates"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "SP-TRN-006",
+  "family": "transport-security",
+  "title": "Administration Endpoint presents the expected endpoint identity",
+  "default_severity": "high",
+  "summary": "Review whether the administration endpoint presents the expected endpoint identity using supplied offline evidence.",
+  "expected": "The certificate or equivalent identity evidence matches the authorized service name and trust path.",
+  "impact": "Identity mismatch can enable misrouting or interception during normal client use.",
+  "remediation": "Provision the expected identity and verify its trust chain and renewal process.",
+  "evidence_fields": [
+    "transport-observation",
+    "asset"
+  ],
+  "tags": [
+    "transport-security",
+    "administration-endpoint",
+    "presents"
+  ]
+}

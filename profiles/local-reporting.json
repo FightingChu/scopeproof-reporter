@@ -1,0 +1,16 @@
+{
+  "id": "profile-local-reporting",
+  "version": 1,
+  "title": "Offline assessment reporting review",
+  "purpose": "Selects relevant review families for a scoped offline assessment reporting review without performing active tests.",
+  "families": [
+    "input-validation",
+    "output-encoding",
+    "file-handling",
+    "data-protection",
+    "privacy-controls"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

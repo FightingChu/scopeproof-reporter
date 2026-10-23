@@ -1,0 +1,10 @@
+{
+  "name": "evidence-status",
+  "version": 1,
+  "description": "Controlled vocabulary for evidence status fields in ScopeProof records.",
+  "values": [
+    "confirmed",
+    "not-observed",
+    "needs-review"
+  ]
+}

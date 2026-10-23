@@ -1,0 +1,20 @@
+{
+  "id": "SP-AZ-013",
+  "family": "authorization",
+  "title": "Export Job enforces object ownership",
+  "default_severity": "high",
+  "summary": "Review whether the export job enforces object ownership using supplied offline evidence.",
+  "expected": "Requests for the subject verify the caller's relationship to the specific object.",
+  "impact": "Missing object checks can expose or modify another user's data.",
+  "remediation": "Authorize every object access using server-side identity and ownership context.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "identity-context"
+  ],
+  "tags": [
+    "authorization",
+    "export-job",
+    "enforces"
+  ]
+}

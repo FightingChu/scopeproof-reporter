@@ -1,0 +1,20 @@
+{
+  "id": "SP-CONFIG-010",
+  "family": "configuration",
+  "title": "Worker Process loads secrets from an approved source",
+  "default_severity": "critical",
+  "summary": "Review whether the worker process loads secrets from an approved source using supplied offline evidence.",
+  "expected": "The worker process obtains credentials from the approved secret source without committed or echoed values.",
+  "impact": "Embedded or printed credentials can spread through source, builds, and logs.",
+  "remediation": "Use the platform secret provider and prevent secret values from entering output.",
+  "evidence_fields": [
+    "configuration",
+    "startup-result",
+    "log-sample"
+  ],
+  "tags": [
+    "configuration",
+    "worker-process",
+    "loads"
+  ]
+}

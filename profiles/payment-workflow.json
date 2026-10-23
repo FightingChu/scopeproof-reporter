@@ -1,0 +1,17 @@
+{
+  "id": "profile-payment-workflow",
+  "version": 1,
+  "title": "Payment workflow review",
+  "purpose": "Selects relevant review families for a scoped payment workflow review without performing active tests.",
+  "families": [
+    "authentication",
+    "authorization",
+    "data-protection",
+    "security-logging",
+    "workflow-integrity",
+    "availability-controls"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

@@ -1,0 +1,19 @@
+{
+  "id": "SP-AVL-017",
+  "family": "availability-controls",
+  "title": "Background Job uses bounded retry behavior",
+  "default_severity": "medium",
+  "summary": "Review whether the background job uses bounded retry behavior using supplied offline evidence.",
+  "expected": "The background job caps attempts and delay while distinguishing retryable from permanent failures.",
+  "impact": "Unbounded retries can amplify outages and overload dependencies.",
+  "remediation": "Use capped exponential backoff, jitter, and a terminal failure path.",
+  "evidence_fields": [
+    "job-history",
+    "retry-policy"
+  ],
+  "tags": [
+    "availability-controls",
+    "background-job",
+    "uses"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-031",
+  "rule_id": "SP-DEP-002",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-03T11:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic dependency-hygiene observation 031",
+  "observation": "The offline fixture records a confirmed review result for runtime library comes from an approved source on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-031 for rule SP-DEP-002.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/031 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 031",
+  "confidence": "high"
+}

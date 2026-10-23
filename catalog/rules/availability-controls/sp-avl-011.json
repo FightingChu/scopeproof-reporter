@@ -1,0 +1,19 @@
+{
+  "id": "SP-AVL-011",
+  "family": "availability-controls",
+  "title": "Batch Import uses bounded retry behavior",
+  "default_severity": "medium",
+  "summary": "Review whether the batch import uses bounded retry behavior using supplied offline evidence.",
+  "expected": "The batch import caps attempts and delay while distinguishing retryable from permanent failures.",
+  "impact": "Unbounded retries can amplify outages and overload dependencies.",
+  "remediation": "Use capped exponential backoff, jitter, and a terminal failure path.",
+  "evidence_fields": [
+    "job-history",
+    "retry-policy"
+  ],
+  "tags": [
+    "availability-controls",
+    "batch-import",
+    "uses"
+  ]
+}

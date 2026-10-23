@@ -1,0 +1,19 @@
+{
+  "id": "SP-LOG-012",
+  "family": "security-logging",
+  "title": "Credential Change resists unauthorized alteration",
+  "default_severity": "medium",
+  "summary": "Review whether the credential change resists unauthorized alteration using supplied offline evidence.",
+  "expected": "The event path restricts deletion and records integrity or delivery failures.",
+  "impact": "Editable or silently dropped logs can hide security-relevant activity.",
+  "remediation": "Use append-oriented protected storage and alert on pipeline gaps.",
+  "evidence_fields": [
+    "storage-policy",
+    "delivery-observation"
+  ],
+  "tags": [
+    "security-logging",
+    "credential-change",
+    "resists"
+  ]
+}

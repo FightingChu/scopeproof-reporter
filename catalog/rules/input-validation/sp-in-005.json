@@ -1,0 +1,20 @@
+{
+  "id": "SP-IN-005",
+  "family": "input-validation",
+  "title": "Json Field applies a bounded size",
+  "default_severity": "medium",
+  "summary": "Review whether the JSON field applies a bounded size using supplied offline evidence.",
+  "expected": "The JSON field has an enforced length, item-count, or numeric range limit.",
+  "impact": "Unbounded input can consume disproportionate memory, CPU, or storage.",
+  "remediation": "Set limits from the business contract and reject oversized input before expansion.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "limit-policy"
+  ],
+  "tags": [
+    "input-validation",
+    "JSON-field",
+    "applies"
+  ]
+}

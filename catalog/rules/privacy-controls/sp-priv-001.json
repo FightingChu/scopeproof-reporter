@@ -1,0 +1,20 @@
+{
+  "id": "SP-PRIV-001",
+  "family": "privacy-controls",
+  "title": "Profile Field states and enforces its purpose",
+  "default_severity": "medium",
+  "summary": "Review whether the profile field states and enforces its purpose using supplied offline evidence.",
+  "expected": "The profile field has a specific documented use and is not silently reused outside that purpose.",
+  "impact": "Purpose drift can expose personal data to unexpected processing.",
+  "remediation": "Record the purpose and enforce access and downstream-use boundaries.",
+  "evidence_fields": [
+    "purpose",
+    "data-sample",
+    "access-policy"
+  ],
+  "tags": [
+    "privacy-controls",
+    "profile-field",
+    "states"
+  ]
+}

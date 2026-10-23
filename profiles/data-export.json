@@ -1,0 +1,17 @@
+{
+  "id": "profile-data-export",
+  "version": 1,
+  "title": "Data export review",
+  "purpose": "Selects relevant review families for a scoped data export review without performing active tests.",
+  "families": [
+    "authorization",
+    "file-handling",
+    "data-protection",
+    "privacy-controls",
+    "workflow-integrity",
+    "security-logging"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

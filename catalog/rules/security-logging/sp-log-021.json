@@ -1,0 +1,19 @@
+{
+  "id": "SP-LOG-021",
+  "family": "security-logging",
+  "title": "Integration Failure resists unauthorized alteration",
+  "default_severity": "medium",
+  "summary": "Review whether the integration failure resists unauthorized alteration using supplied offline evidence.",
+  "expected": "The event path restricts deletion and records integrity or delivery failures.",
+  "impact": "Editable or silently dropped logs can hide security-relevant activity.",
+  "remediation": "Use append-oriented protected storage and alert on pipeline gaps.",
+  "evidence_fields": [
+    "storage-policy",
+    "delivery-observation"
+  ],
+  "tags": [
+    "security-logging",
+    "integration-failure",
+    "resists"
+  ]
+}

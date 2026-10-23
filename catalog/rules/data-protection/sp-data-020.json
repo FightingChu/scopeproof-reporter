@@ -1,0 +1,20 @@
+{
+  "id": "SP-DATA-020",
+  "family": "data-protection",
+  "title": "Analytics Event protects stored values",
+  "default_severity": "high",
+  "summary": "Review whether the analytics event protects stored values using supplied offline evidence.",
+  "expected": "The analytics event uses approved storage protection and access controls for its classification.",
+  "impact": "Weak storage controls can expose sensitive records after another boundary fails.",
+  "remediation": "Apply approved encryption or irreversible transformation and restrict data access.",
+  "evidence_fields": [
+    "configuration",
+    "access-policy",
+    "data-sample"
+  ],
+  "tags": [
+    "data-protection",
+    "analytics-event",
+    "protects"
+  ]
+}

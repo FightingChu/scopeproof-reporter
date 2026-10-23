@@ -1,0 +1,17 @@
+{
+  "id": "profile-support-tool",
+  "version": 1,
+  "title": "Support tool review",
+  "purpose": "Selects relevant review families for a scoped support tool review without performing active tests.",
+  "families": [
+    "authentication",
+    "session-management",
+    "authorization",
+    "data-protection",
+    "privacy-controls",
+    "security-logging"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

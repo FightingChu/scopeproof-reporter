@@ -1,0 +1,19 @@
+{
+  "id": "SP-OUT-020",
+  "family": "output-encoding",
+  "title": "Json Response preserves structural boundaries",
+  "default_severity": "medium",
+  "summary": "Review whether the JSON response preserves structural boundaries using supplied offline evidence.",
+  "expected": "Untrusted values cannot add fields, rows, headers, or executable structure to the output.",
+  "impact": "Boundary injection can corrupt exports or change how downstream tools interpret content.",
+  "remediation": "Serialize through a structured API and quote fields according to the target format.",
+  "evidence_fields": [
+    "input",
+    "rendered-output"
+  ],
+  "tags": [
+    "output-encoding",
+    "JSON-response",
+    "preserves"
+  ]
+}

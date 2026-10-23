@@ -1,0 +1,13 @@
+{
+  "id": "EV-FIX-017",
+  "rule_id": "SP-AVL-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-17T17:00:00Z",
+  "status": "not-observed",
+  "summary": "Synthetic availability-controls observation 017",
+  "observation": "The offline fixture records a not-observed review result for search request sets a work limit on the reserved example asset.",
+  "reproduction": [],
+  "request": "GET /assessment-fixture/017 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 017",
+  "confidence": "medium"
+}

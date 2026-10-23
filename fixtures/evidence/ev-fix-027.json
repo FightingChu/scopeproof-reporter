@@ -1,0 +1,15 @@
+{
+  "id": "EV-FIX-027",
+  "rule_id": "SP-API-002",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-27T07:00:00Z",
+  "status": "needs-review",
+  "summary": "Synthetic api-contracts observation 027",
+  "observation": "The offline fixture records a needs-review review result for create operation uses bounded pagination or batch size on the reserved example asset.",
+  "reproduction": [
+    "Request owner confirmation for the referenced configuration excerpt."
+  ],
+  "request": "GET /assessment-fixture/027 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 027",
+  "confidence": "low"
+}

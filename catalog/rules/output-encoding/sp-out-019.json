@@ -1,0 +1,20 @@
+{
+  "id": "SP-OUT-019",
+  "family": "output-encoding",
+  "title": "Json Response uses context-specific encoding",
+  "default_severity": "high",
+  "summary": "Review whether the JSON response uses context-specific encoding using supplied offline evidence.",
+  "expected": "The JSON response applies encoding for its exact output context before rendering.",
+  "impact": "Incorrect encoding can turn stored or reflected text into active syntax.",
+  "remediation": "Use framework encoders for the destination context and avoid manual replacement chains.",
+  "evidence_fields": [
+    "input",
+    "rendered-output",
+    "context"
+  ],
+  "tags": [
+    "output-encoding",
+    "JSON-response",
+    "uses"
+  ]
+}

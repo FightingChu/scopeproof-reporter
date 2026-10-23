@@ -1,0 +1,15 @@
+{
+  "id": "EV-FIX-021",
+  "rule_id": "SP-AUTH-003",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-21T01:00:00Z",
+  "status": "needs-review",
+  "summary": "Synthetic authentication observation 021",
+  "observation": "The offline fixture records a needs-review review result for password login bounds repeated attempts on the reserved example asset.",
+  "reproduction": [
+    "Request owner confirmation for the referenced configuration excerpt."
+  ],
+  "request": "GET /assessment-fixture/021 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 021",
+  "confidence": "low"
+}

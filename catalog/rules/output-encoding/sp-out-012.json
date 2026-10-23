@@ -1,0 +1,19 @@
+{
+  "id": "SP-OUT-012",
+  "family": "output-encoding",
+  "title": "Javascript Data declares the intended media type",
+  "default_severity": "low",
+  "summary": "Review whether the JavaScript data declares the intended media type using supplied offline evidence.",
+  "expected": "The output media type and character encoding match the actual serialized content.",
+  "impact": "Mismatched types can cause unsafe or inconsistent client interpretation.",
+  "remediation": "Return an explicit media type and UTF-8 or the documented compatible encoding.",
+  "evidence_fields": [
+    "response",
+    "rendered-output"
+  ],
+  "tags": [
+    "output-encoding",
+    "JavaScript-data",
+    "declares"
+  ]
+}

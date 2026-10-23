@@ -1,0 +1,20 @@
+{
+  "id": "SP-API-018",
+  "family": "api-contracts",
+  "title": "Search Operation handles retries without duplicate effects",
+  "default_severity": "high",
+  "summary": "Review whether the search operation handles retries without duplicate effects using supplied offline evidence.",
+  "expected": "Retryable operations use an idempotency design or detect repeated requests safely.",
+  "impact": "Duplicate processing can create inconsistent state or repeated financial and workflow effects.",
+  "remediation": "Bind idempotency keys to the caller and operation and persist completed outcomes.",
+  "evidence_fields": [
+    "request-series",
+    "state-before",
+    "state-after"
+  ],
+  "tags": [
+    "api-contracts",
+    "search-operation",
+    "handles"
+  ]
+}

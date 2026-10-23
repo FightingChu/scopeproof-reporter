@@ -1,0 +1,13 @@
+{
+  "id": "EV-FIX-029",
+  "rule_id": "SP-LOG-002",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-01T09:00:00Z",
+  "status": "not-observed",
+  "summary": "Synthetic security-logging observation 029",
+  "observation": "The offline fixture records a not-observed review result for login event excludes secret material on the reserved example asset.",
+  "reproduction": [],
+  "request": "GET /assessment-fixture/029 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 029",
+  "confidence": "medium"
+}

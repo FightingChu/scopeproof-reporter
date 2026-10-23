@@ -1,0 +1,19 @@
+{
+  "id": "SP-PRIV-012",
+  "family": "privacy-controls",
+  "title": "Usage Event limits disclosure in reports",
+  "default_severity": "high",
+  "summary": "Review whether the usage event limits disclosure in reports using supplied offline evidence.",
+  "expected": "The usage event is minimized or masked before inclusion in operational and assessment reports.",
+  "impact": "Reports can create durable secondary copies with broad readership.",
+  "remediation": "Use field allowlists, masking, and audience-specific report sections.",
+  "evidence_fields": [
+    "report-sample",
+    "data-classification"
+  ],
+  "tags": [
+    "privacy-controls",
+    "usage-event",
+    "limits"
+  ]
+}

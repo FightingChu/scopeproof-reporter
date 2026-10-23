@@ -1,0 +1,19 @@
+{
+  "id": "SP-PRIV-015",
+  "family": "privacy-controls",
+  "title": "Support Record limits disclosure in reports",
+  "default_severity": "high",
+  "summary": "Review whether the support record limits disclosure in reports using supplied offline evidence.",
+  "expected": "The support record is minimized or masked before inclusion in operational and assessment reports.",
+  "impact": "Reports can create durable secondary copies with broad readership.",
+  "remediation": "Use field allowlists, masking, and audience-specific report sections.",
+  "evidence_fields": [
+    "report-sample",
+    "data-classification"
+  ],
+  "tags": [
+    "privacy-controls",
+    "support-record",
+    "limits"
+  ]
+}

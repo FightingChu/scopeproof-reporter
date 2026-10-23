@@ -1,0 +1,19 @@
+{
+  "id": "SP-CONFIG-003",
+  "family": "configuration",
+  "title": "Application Runtime keeps diagnostic detail private",
+  "default_severity": "high",
+  "summary": "Review whether the application runtime keeps diagnostic detail private using supplied offline evidence.",
+  "expected": "The application runtime sends detailed diagnostics only to protected operational logs.",
+  "impact": "Public diagnostics can reveal versions, routes, identifiers, or internal state.",
+  "remediation": "Map public errors to stable messages and retain details in access-controlled logs.",
+  "evidence_fields": [
+    "response",
+    "log-sample"
+  ],
+  "tags": [
+    "configuration",
+    "application-runtime",
+    "keeps"
+  ]
+}

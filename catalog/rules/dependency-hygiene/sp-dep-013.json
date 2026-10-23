@@ -1,0 +1,20 @@
+{
+  "id": "SP-DEP-013",
+  "family": "dependency-hygiene",
+  "title": "Cli Package has a reviewable version constraint",
+  "default_severity": "medium",
+  "summary": "Review whether the CLI package has a reviewable version constraint using supplied offline evidence.",
+  "expected": "The CLI package resolves from an explicit version policy and committed lock or digest where applicable.",
+  "impact": "Unbounded resolution can introduce unreviewed behavior or incompatible updates.",
+  "remediation": "Pin the deployable artifact and update it through a reviewed dependency process.",
+  "evidence_fields": [
+    "manifest",
+    "lock-record",
+    "build-record"
+  ],
+  "tags": [
+    "dependency-hygiene",
+    "CLI-package",
+    "has"
+  ]
+}

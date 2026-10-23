@@ -1,0 +1,17 @@
+{
+  "id": "profile-mobile-backend",
+  "version": 1,
+  "title": "Mobile backend review",
+  "purpose": "Selects relevant review families for a scoped mobile backend review without performing active tests.",
+  "families": [
+    "transport-security",
+    "authentication",
+    "session-management",
+    "authorization",
+    "api-contracts",
+    "data-protection"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

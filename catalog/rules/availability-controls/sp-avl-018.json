@@ -1,0 +1,20 @@
+{
+  "id": "SP-AVL-018",
+  "family": "availability-controls",
+  "title": "Background Job isolates failure domains",
+  "default_severity": "high",
+  "summary": "Review whether the background job isolates failure domains using supplied offline evidence.",
+  "expected": "The background job has queue, pool, or circuit boundaries that prevent one dependency from consuming all capacity.",
+  "impact": "A failing component can otherwise cascade into unrelated service loss.",
+  "remediation": "Separate resource pools and expose saturation and rejection metrics.",
+  "evidence_fields": [
+    "configuration",
+    "runtime-observation",
+    "metrics-sample"
+  ],
+  "tags": [
+    "availability-controls",
+    "background-job",
+    "isolates"
+  ]
+}

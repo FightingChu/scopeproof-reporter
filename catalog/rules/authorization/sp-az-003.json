@@ -1,0 +1,20 @@
+{
+  "id": "SP-AZ-003",
+  "family": "authorization",
+  "title": "User Profile isolates tenant context",
+  "default_severity": "critical",
+  "summary": "Review whether the user profile isolates tenant context using supplied offline evidence.",
+  "expected": "Queries and mutations bind the subject to the authenticated tenant before access.",
+  "impact": "Tenant confusion can disclose or alter another organization's records.",
+  "remediation": "Derive tenant context from trusted identity state and enforce it in data access.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "tenant-context"
+  ],
+  "tags": [
+    "authorization",
+    "user-profile",
+    "isolates"
+  ]
+}

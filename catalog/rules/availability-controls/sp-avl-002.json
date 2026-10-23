@@ -1,0 +1,19 @@
+{
+  "id": "SP-AVL-002",
+  "family": "availability-controls",
+  "title": "Search Request uses bounded retry behavior",
+  "default_severity": "medium",
+  "summary": "Review whether the search request uses bounded retry behavior using supplied offline evidence.",
+  "expected": "The search request caps attempts and delay while distinguishing retryable from permanent failures.",
+  "impact": "Unbounded retries can amplify outages and overload dependencies.",
+  "remediation": "Use capped exponential backoff, jitter, and a terminal failure path.",
+  "evidence_fields": [
+    "job-history",
+    "retry-policy"
+  ],
+  "tags": [
+    "availability-controls",
+    "search-request",
+    "uses"
+  ]
+}

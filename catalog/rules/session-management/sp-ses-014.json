@@ -1,0 +1,19 @@
+{
+  "id": "SP-SES-014",
+  "family": "session-management",
+  "title": "Api Refresh Token rotates after privilege change",
+  "default_severity": "high",
+  "summary": "Review whether the API refresh token rotates after privilege change using supplied offline evidence.",
+  "expected": "The session identifier changes after authentication or another privilege boundary transition.",
+  "impact": "An identifier fixed before privilege gain can remain usable by an unintended party.",
+  "remediation": "Rotate session identifiers on authentication and material authorization changes.",
+  "evidence_fields": [
+    "state-before",
+    "state-after"
+  ],
+  "tags": [
+    "session-management",
+    "API-refresh-token",
+    "rotates"
+  ]
+}

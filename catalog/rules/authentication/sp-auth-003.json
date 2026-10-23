@@ -1,0 +1,20 @@
+{
+  "id": "SP-AUTH-003",
+  "family": "authentication",
+  "title": "Password Login bounds repeated attempts",
+  "default_severity": "high",
+  "summary": "Review whether the password login bounds repeated attempts using supplied offline evidence.",
+  "expected": "Repeated failures trigger an approved throttling or step-up control without locking arbitrary victims indefinitely.",
+  "impact": "Unbounded attempts increase the feasibility of guessing attacks.",
+  "remediation": "Apply identity- and source-aware rate controls with auditable recovery behavior.",
+  "evidence_fields": [
+    "request-series",
+    "response-series",
+    "policy"
+  ],
+  "tags": [
+    "authentication",
+    "password-login",
+    "bounds"
+  ]
+}

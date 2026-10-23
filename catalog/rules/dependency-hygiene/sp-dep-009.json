@@ -1,0 +1,20 @@
+{
+  "id": "SP-DEP-009",
+  "family": "dependency-hygiene",
+  "title": "Container Base has an update and removal owner",
+  "default_severity": "medium",
+  "summary": "Review whether the container base has an update and removal owner using supplied offline evidence.",
+  "expected": "The container base has an owner who reviews advisories, compatibility, and retirement.",
+  "impact": "Unowned dependencies can remain vulnerable or unsupported indefinitely.",
+  "remediation": "Assign ownership and a recurring update window with removal criteria.",
+  "evidence_fields": [
+    "ownership",
+    "inventory",
+    "review-record"
+  ],
+  "tags": [
+    "dependency-hygiene",
+    "container-base",
+    "has"
+  ]
+}

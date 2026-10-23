@@ -1,0 +1,13 @@
+{
+  "name": "finding-state",
+  "version": 1,
+  "description": "Controlled vocabulary for finding state fields in ScopeProof records.",
+  "values": [
+    "draft",
+    "reviewed",
+    "accepted",
+    "remediated",
+    "verified",
+    "closed"
+  ]
+}

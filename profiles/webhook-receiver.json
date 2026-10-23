@@ -1,0 +1,17 @@
+{
+  "id": "profile-webhook-receiver",
+  "version": 1,
+  "title": "Webhook receiver review",
+  "purpose": "Selects relevant review families for a scoped webhook receiver review without performing active tests.",
+  "families": [
+    "transport-security",
+    "authentication",
+    "input-validation",
+    "api-contracts",
+    "workflow-integrity",
+    "availability-controls"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

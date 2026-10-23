@@ -1,0 +1,19 @@
+{
+  "id": "SP-HDR-012",
+  "family": "response-headers",
+  "title": "Administration Page sets an intentional cache policy",
+  "default_severity": "medium",
+  "summary": "Review whether the administration page sets an intentional cache policy using supplied offline evidence.",
+  "expected": "Sensitive or user-specific responses declare a cache policy consistent with their data classification.",
+  "impact": "Shared or persistent caches can retain sensitive response content beyond the session.",
+  "remediation": "Apply private or no-store directives to sensitive content and test intermediary behavior.",
+  "evidence_fields": [
+    "response",
+    "data-classification"
+  ],
+  "tags": [
+    "response-headers",
+    "administration-page",
+    "sets"
+  ]
+}

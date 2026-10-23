@@ -1,0 +1,20 @@
+{
+  "id": "SP-DEP-011",
+  "family": "dependency-hygiene",
+  "title": "Browser Package comes from an approved source",
+  "default_severity": "high",
+  "summary": "Review whether the browser package comes from an approved source using supplied offline evidence.",
+  "expected": "The browser package's source, publisher, and integrity metadata match the approved registry or repository.",
+  "impact": "Source confusion can replace a dependency with an unintended artifact.",
+  "remediation": "Restrict repositories, verify integrity metadata, and retain provenance records.",
+  "evidence_fields": [
+    "manifest",
+    "provenance",
+    "build-record"
+  ],
+  "tags": [
+    "dependency-hygiene",
+    "browser-package",
+    "comes"
+  ]
+}

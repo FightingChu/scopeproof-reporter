@@ -1,0 +1,15 @@
+{
+  "id": "EV-FIX-024",
+  "rule_id": "SP-IN-002",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-24T04:00:00Z",
+  "status": "needs-review",
+  "summary": "Synthetic input-validation observation 024",
+  "observation": "The offline fixture records a needs-review review result for query parameter applies a bounded size on the reserved example asset.",
+  "reproduction": [
+    "Request owner confirmation for the referenced configuration excerpt."
+  ],
+  "request": "GET /assessment-fixture/024 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 024",
+  "confidence": "low"
+}

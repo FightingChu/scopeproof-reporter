@@ -1,0 +1,15 @@
+{
+  "name": "asset-class",
+  "version": 1,
+  "description": "Controlled vocabulary for asset class fields in ScopeProof records.",
+  "values": [
+    "web-application",
+    "api",
+    "worker",
+    "storage",
+    "identity-service",
+    "integration",
+    "client",
+    "network-service"
+  ]
+}

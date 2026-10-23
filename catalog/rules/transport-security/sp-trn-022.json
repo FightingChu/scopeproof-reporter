@@ -1,0 +1,20 @@
+{
+  "id": "SP-TRN-022",
+  "family": "transport-security",
+  "title": "Metrics Endpoint requires encrypted transport",
+  "default_severity": "high",
+  "summary": "Review whether the metrics endpoint requires encrypted transport using supplied offline evidence.",
+  "expected": "The metrics endpoint accepts protected transport and redirects or rejects cleartext use.",
+  "impact": "Unprotected traffic can expose session or business data in transit.",
+  "remediation": "Require encrypted transport and remove cleartext listeners from the approved route.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "transport-observation"
+  ],
+  "tags": [
+    "transport-security",
+    "metrics-endpoint",
+    "requires"
+  ]
+}

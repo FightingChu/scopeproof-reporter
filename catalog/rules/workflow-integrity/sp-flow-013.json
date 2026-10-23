@@ -1,0 +1,19 @@
+{
+  "id": "SP-FLOW-013",
+  "family": "workflow-integrity",
+  "title": "Report Publication enforces required step order",
+  "default_severity": "high",
+  "summary": "Review whether the report publication enforces required step order using supplied offline evidence.",
+  "expected": "The report publication cannot reach a later state before completing all required earlier controls.",
+  "impact": "Step skipping can bypass review, identity, or integrity checks.",
+  "remediation": "Model allowed transitions server-side and reject out-of-order requests.",
+  "evidence_fields": [
+    "request-series",
+    "state-history"
+  ],
+  "tags": [
+    "workflow-integrity",
+    "report-publication",
+    "enforces"
+  ]
+}

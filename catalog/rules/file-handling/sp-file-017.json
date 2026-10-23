@@ -1,0 +1,20 @@
+{
+  "id": "SP-FILE-017",
+  "family": "file-handling",
+  "title": "Temporary File uses a bounded storage path",
+  "default_severity": "high",
+  "summary": "Review whether the temporary file uses a bounded storage path using supplied offline evidence.",
+  "expected": "The temporary file cannot select a path outside its assigned storage root.",
+  "impact": "Path confusion can overwrite or disclose unrelated local files.",
+  "remediation": "Generate server-side names and verify the resolved path remains beneath the storage root.",
+  "evidence_fields": [
+    "request",
+    "resolved-path",
+    "response"
+  ],
+  "tags": [
+    "file-handling",
+    "temporary-file",
+    "uses"
+  ]
+}

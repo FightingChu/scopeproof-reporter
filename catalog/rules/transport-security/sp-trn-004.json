@@ -1,0 +1,20 @@
+{
+  "id": "SP-TRN-004",
+  "family": "transport-security",
+  "title": "Administration Endpoint requires encrypted transport",
+  "default_severity": "high",
+  "summary": "Review whether the administration endpoint requires encrypted transport using supplied offline evidence.",
+  "expected": "The administration endpoint accepts protected transport and redirects or rejects cleartext use.",
+  "impact": "Unprotected traffic can expose session or business data in transit.",
+  "remediation": "Require encrypted transport and remove cleartext listeners from the approved route.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "transport-observation"
+  ],
+  "tags": [
+    "transport-security",
+    "administration-endpoint",
+    "requires"
+  ]
+}

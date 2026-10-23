@@ -1,0 +1,15 @@
+{
+  "id": "EV-FIX-018",
+  "rule_id": "SP-PRIV-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-18T18:00:00Z",
+  "status": "needs-review",
+  "summary": "Synthetic privacy-controls observation 018",
+  "observation": "The offline fixture records a needs-review review result for profile field states and enforces its purpose on the reserved example asset.",
+  "reproduction": [
+    "Request owner confirmation for the referenced configuration excerpt."
+  ],
+  "request": "GET /assessment-fixture/018 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 018",
+  "confidence": "low"
+}

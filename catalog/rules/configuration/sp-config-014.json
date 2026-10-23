@@ -1,0 +1,19 @@
+{
+  "id": "SP-CONFIG-014",
+  "family": "configuration",
+  "title": "Administration Console uses a production-safe default",
+  "default_severity": "high",
+  "summary": "Review whether the administration console uses a production-safe default using supplied offline evidence.",
+  "expected": "The administration console fails closed or requires an explicit secure production setting.",
+  "impact": "Permissive defaults can survive deployment and expose unintended behavior.",
+  "remediation": "Make the secure mode the default and reject incomplete production configuration.",
+  "evidence_fields": [
+    "configuration",
+    "startup-result"
+  ],
+  "tags": [
+    "configuration",
+    "administration-console",
+    "uses"
+  ]
+}

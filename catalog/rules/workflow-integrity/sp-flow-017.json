@@ -1,0 +1,20 @@
+{
+  "id": "SP-FLOW-017",
+  "family": "workflow-integrity",
+  "title": "Backup Restore prevents duplicate completion",
+  "default_severity": "high",
+  "summary": "Review whether the backup restore prevents duplicate completion using supplied offline evidence.",
+  "expected": "The backup restore detects replay or duplicate completion without applying effects twice.",
+  "impact": "Repeated effects can corrupt records or duplicate sensitive actions.",
+  "remediation": "Use a durable completion key and make terminal transitions idempotent.",
+  "evidence_fields": [
+    "request-series",
+    "state-before",
+    "state-after"
+  ],
+  "tags": [
+    "workflow-integrity",
+    "backup-restore",
+    "prevents"
+  ]
+}

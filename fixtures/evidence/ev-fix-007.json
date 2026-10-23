@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-007",
+  "rule_id": "SP-AZ-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-07T07:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic authorization observation 007",
+  "observation": "The offline fixture records a confirmed review result for user profile enforces object ownership on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-007 for rule SP-AZ-001.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/007 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 007",
+  "confidence": "high"
+}

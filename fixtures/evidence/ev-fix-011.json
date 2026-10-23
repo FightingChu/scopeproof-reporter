@@ -1,0 +1,13 @@
+{
+  "id": "EV-FIX-011",
+  "rule_id": "SP-API-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-11T11:00:00Z",
+  "status": "not-observed",
+  "summary": "Synthetic api-contracts observation 011",
+  "observation": "The offline fixture records a not-observed review result for create operation accepts only documented methods and media types on the reserved example asset.",
+  "reproduction": [],
+  "request": "GET /assessment-fixture/011 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 011",
+  "confidence": "medium"
+}

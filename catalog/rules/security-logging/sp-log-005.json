@@ -1,0 +1,19 @@
+{
+  "id": "SP-LOG-005",
+  "family": "security-logging",
+  "title": "Authorization Denial excludes secret material",
+  "default_severity": "high",
+  "summary": "Review whether the authorization denial excludes secret material using supplied offline evidence.",
+  "expected": "The event omits passwords, bearer values, session identifiers, private keys, and unnecessary sensitive payloads.",
+  "impact": "Logs can become a secondary credential and data disclosure channel.",
+  "remediation": "Apply field allowlists and redaction before the event reaches any sink.",
+  "evidence_fields": [
+    "event-sample",
+    "redaction-policy"
+  ],
+  "tags": [
+    "security-logging",
+    "authorization-denial",
+    "excludes"
+  ]
+}

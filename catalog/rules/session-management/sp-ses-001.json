@@ -1,0 +1,19 @@
+{
+  "id": "SP-SES-001",
+  "family": "session-management",
+  "title": "Browser Session uses protected token storage",
+  "default_severity": "high",
+  "summary": "Review whether the browser session uses protected token storage using supplied offline evidence.",
+  "expected": "Session material is issued with storage and transport attributes appropriate to the client type.",
+  "impact": "Exposed session material can allow unauthorized reuse.",
+  "remediation": "Use protected cookies or platform storage and limit token exposure to required components.",
+  "evidence_fields": [
+    "response",
+    "client-storage"
+  ],
+  "tags": [
+    "session-management",
+    "browser-session",
+    "uses"
+  ]
+}

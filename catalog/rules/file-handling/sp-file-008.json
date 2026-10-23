@@ -1,0 +1,20 @@
+{
+  "id": "SP-FILE-008",
+  "family": "file-handling",
+  "title": "Archive Import uses a bounded storage path",
+  "default_severity": "high",
+  "summary": "Review whether the archive import uses a bounded storage path using supplied offline evidence.",
+  "expected": "The archive import cannot select a path outside its assigned storage root.",
+  "impact": "Path confusion can overwrite or disclose unrelated local files.",
+  "remediation": "Generate server-side names and verify the resolved path remains beneath the storage root.",
+  "evidence_fields": [
+    "request",
+    "resolved-path",
+    "response"
+  ],
+  "tags": [
+    "file-handling",
+    "archive-import",
+    "uses"
+  ]
+}

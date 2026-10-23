@@ -1,0 +1,20 @@
+{
+  "id": "SP-DATA-005",
+  "family": "data-protection",
+  "title": "Contact Detail protects stored values",
+  "default_severity": "high",
+  "summary": "Review whether the contact detail protects stored values using supplied offline evidence.",
+  "expected": "The contact detail uses approved storage protection and access controls for its classification.",
+  "impact": "Weak storage controls can expose sensitive records after another boundary fails.",
+  "remediation": "Apply approved encryption or irreversible transformation and restrict data access.",
+  "evidence_fields": [
+    "configuration",
+    "access-policy",
+    "data-sample"
+  ],
+  "tags": [
+    "data-protection",
+    "contact-detail",
+    "protects"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "profile-integration-client",
+  "version": 1,
+  "title": "Integration client review",
+  "purpose": "Selects relevant review families for a scoped integration client review without performing active tests.",
+  "families": [
+    "transport-security",
+    "authentication",
+    "api-contracts",
+    "data-protection",
+    "configuration",
+    "availability-controls"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

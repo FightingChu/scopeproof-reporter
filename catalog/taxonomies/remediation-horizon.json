@@ -1,0 +1,12 @@
+{
+  "name": "remediation-horizon",
+  "version": 1,
+  "description": "Controlled vocabulary for remediation horizon fields in ScopeProof records.",
+  "values": [
+    "immediate",
+    "thirty-days",
+    "ninety-days",
+    "planned",
+    "risk-accepted"
+  ]
+}

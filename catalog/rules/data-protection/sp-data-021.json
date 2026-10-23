@@ -1,0 +1,19 @@
+{
+  "id": "SP-DATA-021",
+  "family": "data-protection",
+  "title": "Analytics Event enforces retention and deletion",
+  "default_severity": "medium",
+  "summary": "Review whether the analytics event enforces retention and deletion using supplied offline evidence.",
+  "expected": "The analytics event has a tested retention window and deletion path consistent with its purpose.",
+  "impact": "Indefinite retention extends exposure and conflicts with lifecycle requirements.",
+  "remediation": "Record a retention owner, automate expiration, and verify deletion from dependent stores.",
+  "evidence_fields": [
+    "retention-policy",
+    "lifecycle-result"
+  ],
+  "tags": [
+    "data-protection",
+    "analytics-event",
+    "enforces"
+  ]
+}

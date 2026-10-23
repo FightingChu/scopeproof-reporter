@@ -1,0 +1,19 @@
+{
+  "id": "SP-PRIV-018",
+  "family": "privacy-controls",
+  "title": "Account Export limits disclosure in reports",
+  "default_severity": "high",
+  "summary": "Review whether the account export limits disclosure in reports using supplied offline evidence.",
+  "expected": "The account export is minimized or masked before inclusion in operational and assessment reports.",
+  "impact": "Reports can create durable secondary copies with broad readership.",
+  "remediation": "Use field allowlists, masking, and audience-specific report sections.",
+  "evidence_fields": [
+    "report-sample",
+    "data-classification"
+  ],
+  "tags": [
+    "privacy-controls",
+    "account-export",
+    "limits"
+  ]
+}

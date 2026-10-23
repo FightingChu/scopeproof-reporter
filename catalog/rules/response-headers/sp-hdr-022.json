@@ -1,0 +1,18 @@
+{
+  "id": "SP-HDR-022",
+  "family": "response-headers",
+  "title": "Static Asset declares a content handling policy",
+  "default_severity": "medium",
+  "summary": "Review whether the static asset declares a content handling policy using supplied offline evidence.",
+  "expected": "The response declares a content type and prevents unintended type interpretation where relevant.",
+  "impact": "Ambiguous content handling can turn benign data into active browser content.",
+  "remediation": "Set an accurate content type and apply a no-sniff policy on relevant responses.",
+  "evidence_fields": [
+    "response"
+  ],
+  "tags": [
+    "response-headers",
+    "static-asset",
+    "declares"
+  ]
+}

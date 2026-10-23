@@ -1,0 +1,20 @@
+{
+  "id": "SP-FLOW-011",
+  "family": "workflow-integrity",
+  "title": "Payment Release prevents duplicate completion",
+  "default_severity": "high",
+  "summary": "Review whether the payment release prevents duplicate completion using supplied offline evidence.",
+  "expected": "The payment release detects replay or duplicate completion without applying effects twice.",
+  "impact": "Repeated effects can corrupt records or duplicate sensitive actions.",
+  "remediation": "Use a durable completion key and make terminal transitions idempotent.",
+  "evidence_fields": [
+    "request-series",
+    "state-before",
+    "state-after"
+  ],
+  "tags": [
+    "workflow-integrity",
+    "payment-release",
+    "prevents"
+  ]
+}

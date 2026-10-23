@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-019",
+  "rule_id": "SP-TRN-002",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-19T19:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic transport-security observation 019",
+  "observation": "The offline fixture records a confirmed review result for public web endpoint uses an approved protocol policy on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-019 for rule SP-TRN-002.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/019 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 019",
+  "confidence": "high"
+}

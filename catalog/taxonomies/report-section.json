@@ -1,0 +1,13 @@
+{
+  "name": "report-section",
+  "version": 1,
+  "description": "Controlled vocabulary for report section fields in ScopeProof records.",
+  "values": [
+    "scope",
+    "summary",
+    "finding",
+    "reproduction",
+    "remediation",
+    "appendix"
+  ]
+}

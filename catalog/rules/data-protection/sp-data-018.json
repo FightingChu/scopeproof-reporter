@@ -1,0 +1,19 @@
+{
+  "id": "SP-DATA-018",
+  "family": "data-protection",
+  "title": "Audit Record enforces retention and deletion",
+  "default_severity": "medium",
+  "summary": "Review whether the audit record enforces retention and deletion using supplied offline evidence.",
+  "expected": "The audit record has a tested retention window and deletion path consistent with its purpose.",
+  "impact": "Indefinite retention extends exposure and conflicts with lifecycle requirements.",
+  "remediation": "Record a retention owner, automate expiration, and verify deletion from dependent stores.",
+  "evidence_fields": [
+    "retention-policy",
+    "lifecycle-result"
+  ],
+  "tags": [
+    "data-protection",
+    "audit-record",
+    "enforces"
+  ]
+}

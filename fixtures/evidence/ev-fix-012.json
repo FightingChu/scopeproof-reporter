@@ -1,0 +1,15 @@
+{
+  "id": "EV-FIX-012",
+  "rule_id": "SP-DATA-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-12T12:00:00Z",
+  "status": "needs-review",
+  "summary": "Synthetic data-protection observation 012",
+  "observation": "The offline fixture records a needs-review review result for account identifier collects only required values on the reserved example asset.",
+  "reproduction": [
+    "Request owner confirmation for the referenced configuration excerpt."
+  ],
+  "request": "GET /assessment-fixture/012 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 012",
+  "confidence": "low"
+}

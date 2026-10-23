@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-013",
+  "rule_id": "SP-LOG-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-13T13:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic security-logging observation 013",
+  "observation": "The offline fixture records a confirmed review result for login event records the decision context on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-013 for rule SP-LOG-001.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/013 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 013",
+  "confidence": "high"
+}

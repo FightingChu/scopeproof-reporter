@@ -1,0 +1,19 @@
+{
+  "id": "SP-HDR-015",
+  "family": "response-headers",
+  "title": "File Download sets an intentional cache policy",
+  "default_severity": "medium",
+  "summary": "Review whether the file download sets an intentional cache policy using supplied offline evidence.",
+  "expected": "Sensitive or user-specific responses declare a cache policy consistent with their data classification.",
+  "impact": "Shared or persistent caches can retain sensitive response content beyond the session.",
+  "remediation": "Apply private or no-store directives to sensitive content and test intermediary behavior.",
+  "evidence_fields": [
+    "response",
+    "data-classification"
+  ],
+  "tags": [
+    "response-headers",
+    "file-download",
+    "sets"
+  ]
+}

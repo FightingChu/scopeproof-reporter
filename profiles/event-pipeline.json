@@ -1,0 +1,16 @@
+{
+  "id": "profile-event-pipeline",
+  "version": 1,
+  "title": "Event pipeline review",
+  "purpose": "Selects relevant review families for a scoped event pipeline review without performing active tests.",
+  "families": [
+    "input-validation",
+    "data-protection",
+    "security-logging",
+    "configuration",
+    "availability-controls"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

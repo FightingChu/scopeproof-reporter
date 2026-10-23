@@ -1,0 +1,20 @@
+{
+  "id": "SP-OUT-010",
+  "family": "output-encoding",
+  "title": "Javascript Data uses context-specific encoding",
+  "default_severity": "high",
+  "summary": "Review whether the JavaScript data uses context-specific encoding using supplied offline evidence.",
+  "expected": "The JavaScript data applies encoding for its exact output context before rendering.",
+  "impact": "Incorrect encoding can turn stored or reflected text into active syntax.",
+  "remediation": "Use framework encoders for the destination context and avoid manual replacement chains.",
+  "evidence_fields": [
+    "input",
+    "rendered-output",
+    "context"
+  ],
+  "tags": [
+    "output-encoding",
+    "JavaScript-data",
+    "uses"
+  ]
+}

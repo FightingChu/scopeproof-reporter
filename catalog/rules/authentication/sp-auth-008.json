@@ -1,0 +1,19 @@
+{
+  "id": "SP-AUTH-008",
+  "family": "authentication",
+  "title": "Multi-Factor Challenge uses consistent failure responses",
+  "default_severity": "medium",
+  "summary": "Review whether the multi-factor challenge uses consistent failure responses using supplied offline evidence.",
+  "expected": "Failure behavior does not reveal whether an account, factor, or invitation exists.",
+  "impact": "Response differences can improve identity enumeration and targeted abuse.",
+  "remediation": "Use a generic response and align status, body, and observable processing paths.",
+  "evidence_fields": [
+    "request",
+    "response"
+  ],
+  "tags": [
+    "authentication",
+    "multi-factor-challenge",
+    "uses"
+  ]
+}

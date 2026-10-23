@@ -1,0 +1,20 @@
+{
+  "id": "SP-IN-013",
+  "family": "input-validation",
+  "title": "Header Value uses a positive syntax contract",
+  "default_severity": "medium",
+  "summary": "Review whether the header value uses a positive syntax contract using supplied offline evidence.",
+  "expected": "The header value accepts only documented shapes, encodings, and value domains.",
+  "impact": "Ambiguous input can reach unintended parser or business-logic branches.",
+  "remediation": "Validate against an explicit allowlist before business processing.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "schema"
+  ],
+  "tags": [
+    "input-validation",
+    "header-value",
+    "uses"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "SP-LOG-003",
+  "family": "security-logging",
+  "title": "Login Event resists unauthorized alteration",
+  "default_severity": "medium",
+  "summary": "Review whether the login event resists unauthorized alteration using supplied offline evidence.",
+  "expected": "The event path restricts deletion and records integrity or delivery failures.",
+  "impact": "Editable or silently dropped logs can hide security-relevant activity.",
+  "remediation": "Use append-oriented protected storage and alert on pipeline gaps.",
+  "evidence_fields": [
+    "storage-policy",
+    "delivery-observation"
+  ],
+  "tags": [
+    "security-logging",
+    "login-event",
+    "resists"
+  ]
+}

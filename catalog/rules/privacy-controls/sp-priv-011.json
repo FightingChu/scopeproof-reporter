@@ -1,0 +1,19 @@
+{
+  "id": "SP-PRIV-011",
+  "family": "privacy-controls",
+  "title": "Usage Event supports the required subject action",
+  "default_severity": "medium",
+  "summary": "Review whether the usage event supports the required subject action using supplied offline evidence.",
+  "expected": "The usage event can be located and handled for access, correction, export, or deletion workflows as required.",
+  "impact": "Incomplete handling can leave inconsistent or undisclosed personal data.",
+  "remediation": "Maintain stable identifiers and test the full subject-request workflow.",
+  "evidence_fields": [
+    "workflow-result",
+    "data-inventory"
+  ],
+  "tags": [
+    "privacy-controls",
+    "usage-event",
+    "supports"
+  ]
+}

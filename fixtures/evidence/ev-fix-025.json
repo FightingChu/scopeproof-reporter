@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-025",
+  "rule_id": "SP-OUT-002",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-25T05:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic output-encoding observation 025",
+  "observation": "The offline fixture records a confirmed review result for html text preserves structural boundaries on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-025 for rule SP-OUT-002.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/025 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 025",
+  "confidence": "high"
+}

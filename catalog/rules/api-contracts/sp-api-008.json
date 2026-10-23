@@ -1,0 +1,20 @@
+{
+  "id": "SP-API-008",
+  "family": "api-contracts",
+  "title": "Update Operation uses bounded pagination or batch size",
+  "default_severity": "medium",
+  "summary": "Review whether the update operation uses bounded pagination or batch size using supplied offline evidence.",
+  "expected": "The update operation enforces documented limits and stable continuation behavior.",
+  "impact": "Unbounded result sets can degrade service and reveal more data than expected.",
+  "remediation": "Apply a maximum page or batch size and use stable continuation tokens.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "limit-policy"
+  ],
+  "tags": [
+    "api-contracts",
+    "update-operation",
+    "uses"
+  ]
+}

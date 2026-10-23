@@ -1,0 +1,16 @@
+{
+  "id": "profile-scheduled-jobs",
+  "version": 1,
+  "title": "Scheduled job review",
+  "purpose": "Selects relevant review families for a scoped scheduled job review without performing active tests.",
+  "families": [
+    "configuration",
+    "dependency-hygiene",
+    "workflow-integrity",
+    "availability-controls",
+    "security-logging"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

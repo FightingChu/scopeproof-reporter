@@ -1,0 +1,17 @@
+{
+  "id": "profile-identity-service",
+  "version": 1,
+  "title": "Identity service review",
+  "purpose": "Selects relevant review families for a scoped identity service review without performing active tests.",
+  "families": [
+    "authentication",
+    "session-management",
+    "authorization",
+    "data-protection",
+    "security-logging",
+    "availability-controls"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

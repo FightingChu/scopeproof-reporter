@@ -1,0 +1,16 @@
+{
+  "id": "EV-FIX-010",
+  "rule_id": "SP-FILE-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-10T10:00:00Z",
+  "status": "confirmed",
+  "summary": "Synthetic file-handling observation 010",
+  "observation": "The offline fixture records a confirmed review result for document upload validates content independently of the name on the reserved example asset.",
+  "reproduction": [
+    "Review offline capture EV-FIX-010 for rule SP-FILE-001.",
+    "Compare the observed value with the documented expected control."
+  ],
+  "request": "GET /assessment-fixture/010 HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 200 OK\nX-ScopeProof-Fixture: 010",
+  "confidence": "high"
+}

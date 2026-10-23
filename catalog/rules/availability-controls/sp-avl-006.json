@@ -1,0 +1,20 @@
+{
+  "id": "SP-AVL-006",
+  "family": "availability-controls",
+  "title": "Report Build isolates failure domains",
+  "default_severity": "high",
+  "summary": "Review whether the report build isolates failure domains using supplied offline evidence.",
+  "expected": "The report build has queue, pool, or circuit boundaries that prevent one dependency from consuming all capacity.",
+  "impact": "A failing component can otherwise cascade into unrelated service loss.",
+  "remediation": "Separate resource pools and expose saturation and rejection metrics.",
+  "evidence_fields": [
+    "configuration",
+    "runtime-observation",
+    "metrics-sample"
+  ],
+  "tags": [
+    "availability-controls",
+    "report-build",
+    "isolates"
+  ]
+}

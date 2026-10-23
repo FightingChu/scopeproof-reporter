@@ -1,0 +1,16 @@
+{
+  "id": "profile-recovery-workflow",
+  "version": 1,
+  "title": "Recovery workflow review",
+  "purpose": "Selects relevant review families for a scoped recovery workflow review without performing active tests.",
+  "families": [
+    "authentication",
+    "session-management",
+    "authorization",
+    "security-logging",
+    "workflow-integrity"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

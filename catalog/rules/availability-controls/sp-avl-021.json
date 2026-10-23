@@ -1,0 +1,20 @@
+{
+  "id": "SP-AVL-021",
+  "family": "availability-controls",
+  "title": "Authentication Request isolates failure domains",
+  "default_severity": "high",
+  "summary": "Review whether the authentication request isolates failure domains using supplied offline evidence.",
+  "expected": "The authentication request has queue, pool, or circuit boundaries that prevent one dependency from consuming all capacity.",
+  "impact": "A failing component can otherwise cascade into unrelated service loss.",
+  "remediation": "Separate resource pools and expose saturation and rejection metrics.",
+  "evidence_fields": [
+    "configuration",
+    "runtime-observation",
+    "metrics-sample"
+  ],
+  "tags": [
+    "availability-controls",
+    "authentication-request",
+    "isolates"
+  ]
+}

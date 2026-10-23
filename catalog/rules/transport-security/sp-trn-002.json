@@ -1,0 +1,19 @@
+{
+  "id": "SP-TRN-002",
+  "family": "transport-security",
+  "title": "Public Web Endpoint uses an approved protocol policy",
+  "default_severity": "medium",
+  "summary": "Review whether the public web endpoint uses an approved protocol policy using supplied offline evidence.",
+  "expected": "The public web endpoint evidence shows only the organization's approved protocol and cipher policy.",
+  "impact": "Obsolete transport settings can weaken confidentiality or integrity guarantees.",
+  "remediation": "Apply the current transport baseline and retest every exposed listener.",
+  "evidence_fields": [
+    "transport-observation",
+    "configuration"
+  ],
+  "tags": [
+    "transport-security",
+    "public-web-endpoint",
+    "uses"
+  ]
+}

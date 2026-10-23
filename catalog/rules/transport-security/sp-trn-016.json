@@ -1,0 +1,20 @@
+{
+  "id": "SP-TRN-016",
+  "family": "transport-security",
+  "title": "Upload Service requires encrypted transport",
+  "default_severity": "high",
+  "summary": "Review whether the upload service requires encrypted transport using supplied offline evidence.",
+  "expected": "The upload service accepts protected transport and redirects or rejects cleartext use.",
+  "impact": "Unprotected traffic can expose session or business data in transit.",
+  "remediation": "Require encrypted transport and remove cleartext listeners from the approved route.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "transport-observation"
+  ],
+  "tags": [
+    "transport-security",
+    "upload-service",
+    "requires"
+  ]
+}

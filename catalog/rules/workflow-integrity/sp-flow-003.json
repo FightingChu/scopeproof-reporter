@@ -1,0 +1,19 @@
+{
+  "id": "SP-FLOW-003",
+  "family": "workflow-integrity",
+  "title": "Approval Workflow records the approving identity",
+  "default_severity": "medium",
+  "summary": "Review whether the approval workflow records the approving identity using supplied offline evidence.",
+  "expected": "The approval workflow binds approvals and exceptions to an authenticated actor and immutable decision record.",
+  "impact": "Unattributed decisions weaken accountability and later investigation.",
+  "remediation": "Persist actor, reason, scope, time, and outcome at the decision point.",
+  "evidence_fields": [
+    "event-sample",
+    "identity-context"
+  ],
+  "tags": [
+    "workflow-integrity",
+    "approval-workflow",
+    "records"
+  ]
+}

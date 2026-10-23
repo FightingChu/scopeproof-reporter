@@ -1,0 +1,17 @@
+{
+  "id": "profile-backup-restore",
+  "version": 1,
+  "title": "Backup and restore review",
+  "purpose": "Selects relevant review families for a scoped backup and restore review without performing active tests.",
+  "families": [
+    "authorization",
+    "file-handling",
+    "data-protection",
+    "configuration",
+    "workflow-integrity",
+    "security-logging"
+  ],
+  "minimum_severity": "info",
+  "requires_scope_manifest": true,
+  "offline_evidence_only": true
+}

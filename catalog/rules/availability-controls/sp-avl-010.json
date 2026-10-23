@@ -1,0 +1,20 @@
+{
+  "id": "SP-AVL-010",
+  "family": "availability-controls",
+  "title": "Batch Import sets a work limit",
+  "default_severity": "medium",
+  "summary": "Review whether the batch import sets a work limit using supplied offline evidence.",
+  "expected": "The batch import limits input size, result size, processing time, or concurrency before expensive work expands.",
+  "impact": "Unbounded work can exhaust shared resources and delay unrelated operations.",
+  "remediation": "Set per-request and per-identity limits at the earliest practical stage.",
+  "evidence_fields": [
+    "request",
+    "limit-policy",
+    "runtime-observation"
+  ],
+  "tags": [
+    "availability-controls",
+    "batch-import",
+    "sets"
+  ]
+}

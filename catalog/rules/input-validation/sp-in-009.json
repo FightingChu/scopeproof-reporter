@@ -1,0 +1,20 @@
+{
+  "id": "SP-IN-009",
+  "family": "input-validation",
+  "title": "Form Field keeps data separate from interpreters",
+  "default_severity": "high",
+  "summary": "Review whether the form field keeps data separate from interpreters using supplied offline evidence.",
+  "expected": "The form field remains data when used by queries, templates, commands, or expression engines.",
+  "impact": "Interpreter confusion can alter downstream operations or disclose data.",
+  "remediation": "Use parameterized APIs and context-specific escaping rather than string composition.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "sink-context"
+  ],
+  "tags": [
+    "input-validation",
+    "form-field",
+    "keeps"
+  ]
+}

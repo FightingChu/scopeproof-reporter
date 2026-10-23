@@ -1,0 +1,20 @@
+{
+  "id": "SP-API-019",
+  "family": "api-contracts",
+  "title": "Webhook Operation accepts only documented methods and media types",
+  "default_severity": "medium",
+  "summary": "Review whether the webhook operation accepts only documented methods and media types using supplied offline evidence.",
+  "expected": "The webhook operation rejects unsupported methods and request media types consistently.",
+  "impact": "Loose protocol handling can expose unintended code paths or parser behavior.",
+  "remediation": "Declare the method and content contract and reject alternatives before processing.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "api-contract"
+  ],
+  "tags": [
+    "api-contracts",
+    "webhook-operation",
+    "accepts"
+  ]
+}

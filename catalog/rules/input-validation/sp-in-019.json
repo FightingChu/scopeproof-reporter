@@ -1,0 +1,20 @@
+{
+  "id": "SP-IN-019",
+  "family": "input-validation",
+  "title": "Sort Key uses a positive syntax contract",
+  "default_severity": "medium",
+  "summary": "Review whether the sort key uses a positive syntax contract using supplied offline evidence.",
+  "expected": "The sort key accepts only documented shapes, encodings, and value domains.",
+  "impact": "Ambiguous input can reach unintended parser or business-logic branches.",
+  "remediation": "Validate against an explicit allowlist before business processing.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "schema"
+  ],
+  "tags": [
+    "input-validation",
+    "sort-key",
+    "uses"
+  ]
+}

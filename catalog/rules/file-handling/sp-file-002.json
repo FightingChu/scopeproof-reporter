@@ -1,0 +1,20 @@
+{
+  "id": "SP-FILE-002",
+  "family": "file-handling",
+  "title": "Document Upload uses a bounded storage path",
+  "default_severity": "high",
+  "summary": "Review whether the document upload uses a bounded storage path using supplied offline evidence.",
+  "expected": "The document upload cannot select a path outside its assigned storage root.",
+  "impact": "Path confusion can overwrite or disclose unrelated local files.",
+  "remediation": "Generate server-side names and verify the resolved path remains beneath the storage root.",
+  "evidence_fields": [
+    "request",
+    "resolved-path",
+    "response"
+  ],
+  "tags": [
+    "file-handling",
+    "document-upload",
+    "uses"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "SP-FILE-018",
+  "family": "file-handling",
+  "title": "Temporary File applies size and lifecycle limits",
+  "default_severity": "medium",
+  "summary": "Review whether the temporary file applies size and lifecycle limits using supplied offline evidence.",
+  "expected": "The temporary file enforces upload, extraction, retention, and deletion bounds.",
+  "impact": "Unbounded files or retention can exhaust storage and retain sensitive data unnecessarily.",
+  "remediation": "Set pre-processing limits and a documented cleanup policy with ownership checks.",
+  "evidence_fields": [
+    "file-metadata",
+    "limit-policy",
+    "lifecycle-result"
+  ],
+  "tags": [
+    "file-handling",
+    "temporary-file",
+    "applies"
+  ]
+}

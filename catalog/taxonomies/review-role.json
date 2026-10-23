@@ -1,0 +1,12 @@
+{
+  "name": "review-role",
+  "version": 1,
+  "description": "Controlled vocabulary for review role fields in ScopeProof records.",
+  "values": [
+    "assessor",
+    "system-owner",
+    "security-reviewer",
+    "remediation-owner",
+    "approver"
+  ]
+}

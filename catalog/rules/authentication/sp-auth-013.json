@@ -1,0 +1,20 @@
+{
+  "id": "SP-AUTH-013",
+  "family": "authentication",
+  "title": "Password Reset invalidates superseded credentials",
+  "default_severity": "high",
+  "summary": "Review whether the password reset invalidates superseded credentials using supplied offline evidence.",
+  "expected": "Successful recovery or credential replacement invalidates tokens and factors that should no longer authorize access.",
+  "impact": "Old credentials can remain usable after a security-sensitive account change.",
+  "remediation": "Revoke superseded sessions and credentials as part of the state transition.",
+  "evidence_fields": [
+    "state-before",
+    "state-after",
+    "response"
+  ],
+  "tags": [
+    "authentication",
+    "password-reset",
+    "invalidates"
+  ]
+}

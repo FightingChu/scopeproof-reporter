@@ -1,0 +1,20 @@
+{
+  "id": "SP-FILE-010",
+  "family": "file-handling",
+  "title": "Report Export validates content independently of the name",
+  "default_severity": "high",
+  "summary": "Review whether the report export validates content independently of the name using supplied offline evidence.",
+  "expected": "The report export validates its actual format and accepted structure instead of trusting an extension alone.",
+  "impact": "Misclassified content can reach unsafe processors or active delivery paths.",
+  "remediation": "Inspect content with an allowlisted parser and reject inconsistent metadata.",
+  "evidence_fields": [
+    "file-metadata",
+    "parser-result",
+    "response"
+  ],
+  "tags": [
+    "file-handling",
+    "report-export",
+    "validates"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "replacement": "[REDACTED]",
+  "categories": ["bearer", "cookie", "password", "api-key", "token", "secret", "private-key"],
+  "preserve_labels": true
+}

@@ -1,0 +1,6 @@
+{
+  "output_format": "markdown",
+  "include_not_observed": true,
+  "sort": ["severity", "rule_id", "evidence_id"],
+  "atomic_write": true
+}

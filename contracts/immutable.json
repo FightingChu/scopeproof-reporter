@@ -1,0 +1,12 @@
+{
+  "TASK.md": "cb1ae4ce5e7f955d73447c01985ca1e104d5335c305a2ab4f7286cf824ae2ef9",
+  "docs/ACCEPTANCE.md": "f867187f7ba5feed0603b9c9f2cf7ac8799bd7970fc003ee14953d0f4e1ab6ea",
+  "tests/run_scenarios.py": "7ac8be818439ff6ad88e9cbec70cdf6f34b7f4d9a928718249e8ecdce6304c9b",
+  "tests/scenarios/__init__.py": "91dbb69f5c85b7697c06234898f0ea86e582a8b216adf005b29eb66e6c46a2bf",
+  "tests/scenarios/s1_build.py": "f7c76ae33ef5de977bfdb1c990494db97271ab58bb1e90cdf056a32bdc929fb9",
+  "tests/scenarios/s2_scope.py": "15e593b5c7e2d3df1759cb0e342998de7dd2bd1785a83526272acb9e6f646604",
+  "tests/scenarios/s3_summary.py": "ba6ddc556e45f87b9538a1656dd5220f1ad585d5e38b64f2985b26c58ee8c365",
+  "tests/scenarios/s4_reproduction.py": "6113a0bbac12610a186474c2646b1c2475db94ed9f70c9b4711dc02d9d6b0fd6",
+  "tests/scenarios/s5_redaction.py": "df3b50f3a5223ff322819cb7c5d14e759e51f9f2646d1dc643d6ac458bf6bd8f",
+  "tests/scenarios/s6_atomic_output.py": "3f60999d23eb2cb617085752c5e86b382d702c5a8b64468107ee7804fbd452ed"
+}

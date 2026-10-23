@@ -1,0 +1,4 @@
+{
+  "order": ["critical", "high", "medium", "low", "info"],
+  "display": {"critical": "Critical", "high": "High", "medium": "Medium", "low": "Low", "info": "Informational"}
+}

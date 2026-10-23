@@ -1,0 +1,17 @@
+{
+  "id": "EV-DEMO-AUTH-001",
+  "rule_id": "SP-AUTH-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-10T10:30:00Z",
+  "status": "confirmed",
+  "summary": "Login responses differ for known and unknown accounts",
+  "observation": "The synthetic review evidence contains distinct response messages for an existing test account and a nonexistent account.",
+  "reproduction": [
+    "curl -i http://127.0.0.1:18080/login -d 'username=known&password=DEMO_ONLY'",
+    "curl -i http://127.0.0.1:18080/login -d 'username=missing&password=DEMO_ONLY'",
+    "Compare the status code and generic response body."
+  ],
+  "request": "POST /login HTTP/1.1\nHost: portal.example.test\nAuthorization: Bearer DEMO-TOKEN-123456",
+  "response": "HTTP/1.1 401 Unauthorized\nSet-Cookie: session=DEMOSESSION123; HttpOnly",
+  "confidence": "high"
+}

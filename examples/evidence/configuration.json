@@ -1,0 +1,13 @@
+{
+  "id": "EV-DEMO-CONFIG-001",
+  "rule_id": "SP-CONFIG-001",
+  "asset": "portal.example.test",
+  "observed_at": "2026-10-10T11:00:00Z",
+  "status": "needs-review",
+  "summary": "Debug response fields require owner confirmation",
+  "observation": "An offline response capture includes a framework diagnostic identifier that should be reviewed against the production configuration baseline.",
+  "reproduction": [],
+  "request": "GET /missing HTTP/1.1\nHost: portal.example.test",
+  "response": "HTTP/1.1 404 Not Found\nX-Diagnostic-Id: example-only",
+  "confidence": "medium"
+}

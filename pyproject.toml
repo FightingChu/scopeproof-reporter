@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=65"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scopeproof-reporter"
+version = "0.1.0"
+description = "Offline compiler for scoped internal security assessment reports"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "ScopeProof Reporter contributors"}]
+dependencies = []
+
+[project.scripts]
+scopeproof = "scopeproof.cli:main"
+
+[tool.setuptools]
+packages = ["scopeproof"]

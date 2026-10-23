@@ -1,0 +1,20 @@
+{
+  "id": "SP-CONFIG-001",
+  "family": "configuration",
+  "title": "Production diagnostic detail exposure",
+  "default_severity": "high",
+  "summary": "Review production responses for framework diagnostics and internal implementation detail.",
+  "expected": "Production error responses use stable public messages and keep diagnostic context in protected server logs.",
+  "impact": "Detailed diagnostics can disclose routes, component versions, identifiers, or internal state useful for further review.",
+  "remediation": "Disable public debug output, centralize exception mapping, and retain detailed context only in access-controlled logs.",
+  "evidence_fields": [
+    "request",
+    "response",
+    "environment"
+  ],
+  "tags": [
+    "configuration",
+    "debug",
+    "error-handling"
+  ]
+}

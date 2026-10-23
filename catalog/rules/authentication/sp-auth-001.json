@@ -1,0 +1,19 @@
+{
+  "id": "SP-AUTH-001",
+  "family": "authentication",
+  "title": "Login response account disclosure",
+  "default_severity": "medium",
+  "summary": "Review whether failed login responses reveal if an account exists.",
+  "expected": "Known and unknown accounts receive equivalent failure status, body, and observable timing treatment.",
+  "impact": "An observer can improve account guessing accuracy and focus later credential attacks.",
+  "remediation": "Return one generic failure response and align processing paths for unsuccessful authentication attempts.",
+  "evidence_fields": [
+    "request",
+    "response"
+  ],
+  "tags": [
+    "login",
+    "account-enumeration",
+    "response-consistency"
+  ]
+}

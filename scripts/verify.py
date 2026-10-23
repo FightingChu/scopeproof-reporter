@@ -32,6 +32,7 @@ def check_batch() -> None:
 def main() -> int:
     run("scripts/build.py")
     run("-m", "unittest", "discover", "-s", "tests/unit", "-v")
+    run("scripts/demo.py")
     run("scripts/validate_catalog.py")
     run("scripts/check_baseline.py")
     run("scripts/check_docs.py")

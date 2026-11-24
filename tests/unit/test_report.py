@@ -22,6 +22,23 @@ class ReportTests(unittest.TestCase):
         self.assertNotIn("SESSION-12345", report)
         self.assertIn("[REDACTED]", report)
 
+    def test_compiled_report_summarizes_rule_families(self):
+        with tempfile.TemporaryDirectory() as folder:
+            report_path = Path(folder) / "report.md"
+            compile_report(
+                ROOT / "examples" / "scope.json",
+                ROOT / "examples" / "evidence",
+                report_path,
+            )
+            report = report_path.read_text(encoding="utf-8")
+            self.assertIn("## Findings by rule family", report)
+            self.assertIn("| authentication | 1 |", report)
+            self.assertIn("| configuration | 1 |", report)
+            self.assertLess(
+                report.index("Total findings: **2**"),
+                report.index("## Findings by rule family"),
+            )
+
     def test_compiled_reports_include_ordered_evidence_context(self):
         authentication = json.loads(
             (ROOT / "examples" / "evidence" / "authentication.json").read_text(encoding="utf-8")
@@ -56,8 +73,8 @@ class ReportTests(unittest.TestCase):
                     configuration_start = report.index("## 1. Production diagnostic detail exposure")
                     authentication_start = report.index("## 2. Login response account disclosure")
                 else:
-                    configuration_start = report.index('<h2 id="section-3">1. Production diagnostic detail exposure')
-                    authentication_start = report.index('<h2 id="section-4">2. Login response account disclosure')
+                    configuration_start = report.index("1. Production diagnostic detail exposure</h2>")
+                    authentication_start = report.index("2. Login response account disclosure</h2>")
                 configuration_section = report[configuration_start:authentication_start]
                 authentication_section = report[authentication_start:]
 
@@ -73,6 +90,29 @@ class ReportTests(unittest.TestCase):
                     self.assertIn("````text", configuration_section)
                 else:
                     self.assertIn("<pre>", configuration_section)
+
+    def test_rule_family_summary_escapes_markdown_table_delimiters(self):
+        with tempfile.TemporaryDirectory() as folder:
+            temporary = Path(folder)
+            evidence_data = json.loads(
+                (ROOT / "examples" / "evidence" / "authentication.json").read_text(encoding="utf-8")
+            )
+            scope_data = json.loads((ROOT / "examples" / "scope.json").read_text(encoding="utf-8"))
+            rule_data = json.loads(
+                (ROOT / "catalog" / "rules" / "authentication" / "sp-auth-001.json").read_text(encoding="utf-8")
+            )
+            rule_data["family"] = "auth|entication"
+            evidence_path = temporary / "evidence.json"
+            scope_path = temporary / "scope.json"
+            catalog_path = temporary / "catalog"
+            catalog_path.mkdir()
+            report_path = temporary / "report.md"
+            evidence_path.write_text(json.dumps(evidence_data), encoding="utf-8")
+            scope_path.write_text(json.dumps(scope_data), encoding="utf-8")
+            (catalog_path / "rule.json").write_text(json.dumps(rule_data), encoding="utf-8")
+            compile_report(scope_path, evidence_path, report_path, catalog_path=catalog_path)
+            report = report_path.read_text(encoding="utf-8")
+            self.assertIn(r"| auth\|entication | 1 |", report)
 
 
 if __name__ == "__main__":

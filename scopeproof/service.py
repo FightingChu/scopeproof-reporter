@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from collections import Counter
 from pathlib import Path
 
 from .catalog import RuleCatalog
@@ -77,6 +78,29 @@ def _attach_evidence_context(markdown: str, findings: tuple[Finding, ...]) -> st
     return markdown
 
 
+def _attach_family_summary(markdown: str, findings: tuple[Finding, ...]) -> str:
+    family_counts = Counter(finding.rule.family for finding in findings)
+    if not family_counts:
+        return markdown
+
+    total_marker = f"Total findings: **{len(findings)}**\n\n"
+    if total_marker not in markdown:
+        raise ValidationError("generated report is missing the finding total")
+
+    lines = [
+        "## Findings by rule family",
+        "",
+        "| Rule family | Count |",
+        "| --- | ---: |",
+    ]
+    for family in sorted(family_counts):
+        safe_family = redact_text(family).replace("\r", " ").replace("\n", " ")
+        safe_family = safe_family.replace("\\", "\\\\").replace("|", "\\|")
+        lines.append(f"| {safe_family} | {family_counts[family]} |")
+    summary = "\n".join(lines) + "\n\n"
+    return markdown.replace(total_marker, total_marker + summary, 1)
+
+
 def load_profile(profile_id: str, catalog: RuleCatalog | None = None) -> AssessmentProfile:
     rules = catalog or RuleCatalog.load(PROJECT_ROOT / "catalog" / "rules")
     profiles = ProfileCatalog.load(PROFILE_ROOT, rules.families())
@@ -120,6 +144,7 @@ def compile_report(
 ) -> Path:
     scope, findings = validate_inputs(scope_path, evidence_path, catalog_path, profile_id)
     markdown = _attach_evidence_context(build_markdown(scope, findings), findings)
+    markdown = _attach_family_summary(markdown, findings)
     if profile_id:
         profile = load_profile(profile_id)
         markdown = markdown.replace(

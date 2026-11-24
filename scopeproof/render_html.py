@@ -91,6 +91,28 @@ def _inline(markdown_text: str) -> str:
     return "".join(output)
 
 
+def _table_cells(line: str) -> list[str]:
+    if not line.startswith("|") or not line.endswith("|"):
+        return []
+    cells: list[str] = []
+    current: list[str] = []
+    index = 1
+    while index < len(line) - 1:
+        character = line[index]
+        if character == "\\" and index + 1 < len(line) - 1 and line[index + 1] == "|":
+            current.append("|")
+            index += 2
+        elif character == "|":
+            cells.append("".join(current).strip())
+            current.clear()
+            index += 1
+        else:
+            current.append(character)
+            index += 1
+    cells.append("".join(current).strip())
+    return cells
+
+
 def markdown_to_html(markdown: str) -> str:
     markdown_lines = markdown.splitlines()
     toc, anchors = _toc(markdown_lines)
@@ -119,7 +141,7 @@ def markdown_to_html(markdown: str) -> str:
             output.append(html.escape(line) + "\n")
             continue
         if line.startswith("| ") and line.endswith(" |"):
-            cells = [cell.strip() for cell in line.strip("|").split("|")]
+            cells = _table_cells(line)
             if all(set(cell) <= {"-", ":"} for cell in cells):
                 continue
             if not in_table:

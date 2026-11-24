@@ -11,6 +11,7 @@ from .catalog import RuleCatalog
 from .models import ValidationError
 from .profiles import ProfileCatalog
 from .service import PROFILE_ROOT, PROJECT_ROOT, compile_report, load_profile, validate_inputs
+from .report import SEVERITY_ORDER
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -22,6 +23,7 @@ def build_parser() -> argparse.ArgumentParser:
     validate.add_argument("--evidence", required=True)
     validate.add_argument("--catalog", default=str(PROJECT_ROOT / "catalog" / "rules"))
     validate.add_argument("--profile", help="restrict evidence to a curated local profile")
+    validate.add_argument("--json", action="store_true", help="emit a machine-readable validation summary")
 
     report = subparsers.add_parser("report", help="compile a local assessment report")
     report.add_argument("--scope", required=True)
@@ -46,7 +48,44 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if args.command == "validate":
             scope, findings = validate_inputs(args.scope, args.evidence, args.catalog, args.profile)
-            print(f"valid assessment={scope.assessment_id} evidence={len(findings)}")
+            if args.json:
+                ordered = sorted(
+                    findings,
+                    key=lambda item: (
+                        SEVERITY_ORDER[item.severity],
+                        item.rule.id,
+                        item.evidence.id,
+                    ),
+                )
+                payload = {
+                    "assessment_id": scope.assessment_id,
+                    "valid": True,
+                    "evidence_count": len(ordered),
+                    "counts_by_severity": {
+                        severity: sum(item.severity == severity for item in ordered)
+                        for severity in ("critical", "high", "medium", "low", "info")
+                    },
+                    "counts_by_family": {
+                        family: sum(item.rule.family == family for item in ordered)
+                        for family in sorted({item.rule.family for item in ordered})
+                    },
+                    "findings": [
+                        {
+                            "evidence_id": item.evidence.id,
+                            "rule_id": item.rule.id,
+                            "family": item.rule.family,
+                            "asset": item.evidence.asset,
+                            "observed_at": item.evidence.observed_at.isoformat(),
+                            "severity": item.severity,
+                            "status": item.evidence.status,
+                            "confidence": item.evidence.confidence,
+                        }
+                        for item in ordered
+                    ],
+                }
+                print(json.dumps(payload, ensure_ascii=False, sort_keys=True))
+            else:
+                print(f"valid assessment={scope.assessment_id} evidence={len(findings)}")
             return 0
         if args.command == "report":
             destination = compile_report(

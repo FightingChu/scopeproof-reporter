@@ -60,6 +60,25 @@ class HtmlTests(unittest.TestCase):
         self.assertIn(".report-toc{display:none}", rendered)
         self.assertIn("pre,table,tr,.badge{break-inside:avoid-page}", rendered)
 
+    def test_renders_severity_distribution_from_report_counts(self):
+        rendered = markdown_to_html(
+            "## Finding summary\n\n"
+            "| Severity | Count |\n| --- | ---: |\n"
+            "| Critical | 1 |\n| High | 2 |\n| Medium | 1 |\n| Low | 0 |\n| Info | 0 |\n\n"
+            "## Findings by rule family\n"
+        )
+        self.assertIn('<figure class="severity-chart" aria-label="Findings by severity">', rendered)
+        self.assertIn('<span class="severity-fill severity-high" style="width:100.00%"></span>', rendered)
+        self.assertIn('<span class="severity-count">2</span>', rendered)
+
+    def test_severity_chart_handles_zero_findings_without_invalid_width(self):
+        rendered = markdown_to_html(
+            "## Finding summary\n\n| Severity | Count |\n| --- | ---: |\n"
+            "| Critical | 0 |\n| High | 0 |\n| Medium | 0 |\n| Low | 0 |\n| Info | 0 |\n"
+        )
+        self.assertIn('<span class="severity-fill severity-critical" style="width:0.00%"></span>', rendered)
+        self.assertNotIn("nan%", rendered)
+
 
 if __name__ == "__main__":
     unittest.main()

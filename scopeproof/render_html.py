@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html
 import re
+from collections import Counter
 
 
 SEVERITIES = {"critical", "high", "medium", "low", "info"}
@@ -24,6 +25,12 @@ REPORT_STYLES = (
     ".status-not-observed{color:#495057;background:#e2e3e5}.status-needs-review{color:#664d03;background:#fff3cd}"
     ".confidence-high{color:#146c43;background:#d1e7dd}.confidence-medium{color:#664d03;background:#fff3cd}"
     ".confidence-low{color:#495057;background:#e2e3e5}li{margin:.2rem 0}p{line-height:1.55}"
+    ".severity-chart{max-width:600px;margin:1.25rem 0;padding:1rem;background:#f7f9fb;border:1px solid #dce2e8;border-radius:8px}"
+    ".severity-chart figcaption{font-weight:700;margin-bottom:.65rem}.severity-bars{list-style:none;padding:0;margin:0}"
+    ".severity-bars li{display:grid;grid-template-columns:6.5rem 1fr 2rem;align-items:center;gap:.65rem;margin:.45rem 0}"
+    ".severity-track{height:.8rem;background:#e7ebef;border-radius:999px;overflow:hidden}.severity-fill{display:block;height:100%;min-width:0;border-radius:999px}"
+    ".severity-fill.severity-critical,.severity-fill.severity-high{background:#b42318}.severity-fill.severity-medium{background:#b58105}"
+    ".severity-fill.severity-low,.severity-fill.severity-info{background:#316fba}.severity-count{text-align:right;font-variant-numeric:tabular-nums}"
     "@page{size:A4;margin:18mm 16mm}"
     "@media print{body{max-width:none;margin:0;padding:0;background:#fff;color:#111;font-size:10pt}"
     "main{padding:0;border:0;border-radius:0}.report-toc{display:none}"
@@ -31,6 +38,7 @@ REPORT_STYLES = (
     "a{color:inherit;text-decoration:none}a[href^='#']{color:inherit}"
     "pre,table,tr,.badge{break-inside:avoid-page}pre{white-space:pre-wrap;overflow-wrap:anywhere}"
     "thead{display:table-header-group}tfoot{display:table-footer-group}"
+    ".severity-chart{max-width:100%;background:#fff;border:1px solid #777}.severity-fill{print-color-adjust:exact;-webkit-print-color-adjust:exact}"
     ".severity-critical,.severity-high,.severity-medium,.severity-low,.severity-info,"
     ".status-confirmed,.status-not-observed,.status-needs-review,.confidence-high,.confidence-medium,.confidence-low{"
     "color:#111;background:#fff;border:1px solid #777}"
@@ -113,6 +121,45 @@ def _table_cells(line: str) -> list[str]:
     return cells
 
 
+def _severity_chart(markdown_lines: list[str]) -> list[str]:
+    try:
+        summary_index = markdown_lines.index("## Finding summary")
+    except ValueError:
+        return []
+
+    counts: Counter[str] = Counter()
+    for line in markdown_lines[summary_index + 1 :]:
+        if line.startswith("## "):
+            break
+        cells = _table_cells(line)
+        if len(cells) == 2 and cells[0].lower() in {"critical", "high", "medium", "low", "info"}:
+            try:
+                count = int(cells[1])
+            except ValueError:
+                continue
+            if count >= 0:
+                counts[cells[0].lower()] = count
+    if not counts:
+        return []
+
+    maximum = max(counts.values(), default=0)
+    output = [
+        '<figure class="severity-chart" aria-label="Findings by severity">',
+        '<figcaption>Findings by severity</figcaption>',
+        '<ul class="severity-bars">',
+    ]
+    for severity in ("critical", "high", "medium", "low", "info"):
+        count = counts.get(severity, 0)
+        width = count / maximum * 100 if maximum else 0
+        output.append(
+            f'<li><span class="severity-label">{severity.title()}</span>'
+            f'<span class="severity-track"><span class="severity-fill severity-{severity}" '
+            f'style="width:{width:.2f}%"></span></span><span class="severity-count">{count}</span></li>'
+        )
+    output.extend(["</ul>", "</figure>"])
+    return output
+
+
 def markdown_to_html(markdown: str) -> str:
     markdown_lines = markdown.splitlines()
     toc, anchors = _toc(markdown_lines)
@@ -125,6 +172,7 @@ def markdown_to_html(markdown: str) -> str:
         "<main>",
     ]
     output.extend(toc)
+    output.extend(_severity_chart(markdown_lines))
     in_code = False
     in_list = False
     in_table = False

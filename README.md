@@ -7,6 +7,8 @@ ScopeProof Reporter is an offline compiler for internal security assessment repo
 ```powershell
 python -m scopeproof validate --scope examples/scope.json --evidence examples/evidence
 python -m scopeproof report --scope examples/scope.json --evidence examples/evidence --output output/demo.md
+python -m scopeproof profiles
+python -m scopeproof validate --scope examples/scope.json --evidence examples/evidence/authentication.json --profile profile-browser-application
 python scripts/build.py
 python -m unittest discover -s tests/unit -v
 python tests/run_scenarios.py

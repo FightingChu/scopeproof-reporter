@@ -30,6 +30,7 @@ class CliTests(unittest.TestCase):
         self.assertTrue(payload["valid"])
         self.assertEqual(2, payload["evidence_count"])
         self.assertEqual({"high": 1, "medium": 1, "critical": 0, "info": 0, "low": 0}, payload["counts_by_severity"])
+        self.assertEqual({"confirmed": 1, "needs-review": 1, "not-observed": 0}, payload["counts_by_status"])
         self.assertEqual({"authentication": 1, "configuration": 1}, payload["counts_by_family"])
         self.assertEqual(
             ["EV-DEMO-CONFIG-001", "EV-DEMO-AUTH-001"],

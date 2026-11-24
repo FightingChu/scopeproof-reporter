@@ -65,6 +65,10 @@ def main(argv: list[str] | None = None) -> int:
                         severity: sum(item.severity == severity for item in ordered)
                         for severity in ("critical", "high", "medium", "low", "info")
                     },
+                    "counts_by_status": {
+                        status: sum(item.evidence.status == status for item in ordered)
+                        for status in ("confirmed", "needs-review", "not-observed")
+                    },
                     "counts_by_family": {
                         family: sum(item.rule.family == family for item in ordered)
                         for family in sorted({item.rule.family for item in ordered})

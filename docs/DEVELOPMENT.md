@@ -8,4 +8,4 @@ Add catalog rules as individual JSON objects. Add profiles only when they select
 
 List supported profiles with `python -m scopeproof profiles` or inspect one with `python -m scopeproof profiles --id profile-browser-application`. Pass `--profile profile-browser-application` to `validate` or `report` to reject evidence whose rule family is outside that profile. Reports record the selected profile.
 
-Use `validate --json` for pipeline integration. Its stable JSON object contains assessment ID, validity, finding counts by severity and rule family, and a sorted list of finding identifiers and classifications. It omits observation text, requests, responses, and evidence summaries.
+Use `validate --json` for pipeline integration. Its stable JSON object contains assessment ID, validity, finding counts by severity, review status, and rule family, plus a sorted list of finding identifiers and classifications. It omits observation text, requests, responses, and evidence summaries.

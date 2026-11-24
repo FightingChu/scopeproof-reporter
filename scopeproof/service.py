@@ -11,7 +11,7 @@ from .models import Finding, ScopeManifest, ValidationError
 from .profiles import AssessmentProfile, ProfileCatalog
 from .render_html import markdown_to_html
 from .report import build_markdown
-from .scope import load_scope, require_authorized_asset
+from .scope import load_scope, require_authorized_asset, require_evidence_in_scope
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -40,6 +40,7 @@ def validate_inputs(
     findings: list[Finding] = []
     for evidence in load_evidence_path(evidence_path):
         require_authorized_asset(scope, evidence.asset)
+        require_evidence_in_scope(scope, evidence)
         rule = catalog.get(evidence.rule_id)
         if selected_profile and rule.family not in selected_profile.families:
             raise ValidationError(

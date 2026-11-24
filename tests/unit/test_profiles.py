@@ -1,4 +1,7 @@
+import json
+import tempfile
 import unittest
+from pathlib import Path
 
 from scopeproof.catalog import RuleCatalog
 from scopeproof.models import ValidationError
@@ -48,6 +51,21 @@ class ProfileTests(unittest.TestCase):
             profile_id="profile-browser-application",
         )
         self.assertEqual(["SP-AUTH-001"], [finding.rule.id for finding in findings])
+
+    def test_validation_rejects_evidence_outside_engagement_dates(self):
+        payload = json.loads(
+            (ROOT / "examples" / "evidence" / "authentication.json").read_text(encoding="utf-8")
+        )
+        payload["observed_at"] = "2026-11-01T00:00:00Z"
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / "outside-window.json"
+            path.write_text(json.dumps(payload), encoding="utf-8")
+            with self.assertRaisesRegex(ValidationError, "falls outside scope validity"):
+                validate_inputs(
+                    ROOT / "examples" / "scope.json",
+                    path,
+                    profile_id="profile-browser-application",
+                )
 
     def test_report_records_selected_profile(self):
         destination = ROOT / "output" / "profile-report.md"

@@ -53,6 +53,13 @@ class HtmlTests(unittest.TestCase):
         self.assertIn("<code>**TOKEN**</code>", rendered)
         self.assertNotIn("<strong>TOKEN</strong>", rendered)
 
+    def test_includes_print_layout_rules(self):
+        rendered = markdown_to_html("# Report\n")
+        self.assertIn("@page{size:A4", rendered)
+        self.assertIn("@media print{", rendered)
+        self.assertIn(".report-toc{display:none}", rendered)
+        self.assertIn("pre,table,tr,.badge{break-inside:avoid-page}", rendered)
+
 
 if __name__ == "__main__":
     unittest.main()

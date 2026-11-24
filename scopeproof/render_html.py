@@ -9,6 +9,34 @@ import re
 SEVERITIES = {"critical", "high", "medium", "low", "info"}
 STATUSES = {"confirmed", "not-observed", "needs-review"}
 CONFIDENCES = {"high", "medium", "low"}
+REPORT_STYLES = (
+    "<style>"
+    "body{font:15px Arial,sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem;color:#202124;background:#f7f9fb}"
+    "main{background:#fff;padding:clamp(1rem,4vw,2.5rem);border:1px solid #dce2e8;border-radius:12px}"
+    "h1,h2,h3{color:#16324f}h2{scroll-margin-top:1rem}a{color:#1359a6}"
+    ".report-toc{padding:1rem 1.25rem;margin:1.5rem 0;background:#f0f4f8;border:1px solid #dce4ec;border-radius:8px}"
+    ".report-toc h2{margin-top:0}.report-toc ul{margin-bottom:0;padding-left:1.2rem}.report-toc li{margin:.35rem 0}"
+    "code,pre{background:#f4f6f8}pre{padding:12px;overflow:auto;border:1px solid #e2e7ed;border-radius:6px}"
+    "table{border-collapse:collapse}th,td{border:1px solid #c7cdd4;padding:6px 10px;text-align:left}th{background:#edf1f5}"
+    ".badge{display:inline-block;padding:.18rem .55rem;border-radius:999px;font-size:.82rem;font-weight:700;white-space:nowrap}"
+    ".severity-critical,.severity-high{color:#842029;background:#f8d7da}.severity-medium{color:#664d03;background:#fff3cd}"
+    ".severity-low,.severity-info{color:#084298;background:#cfe2ff}.status-confirmed{color:#146c43;background:#d1e7dd}"
+    ".status-not-observed{color:#495057;background:#e2e3e5}.status-needs-review{color:#664d03;background:#fff3cd}"
+    ".confidence-high{color:#146c43;background:#d1e7dd}.confidence-medium{color:#664d03;background:#fff3cd}"
+    ".confidence-low{color:#495057;background:#e2e3e5}li{margin:.2rem 0}p{line-height:1.55}"
+    "@page{size:A4;margin:18mm 16mm}"
+    "@media print{body{max-width:none;margin:0;padding:0;background:#fff;color:#111;font-size:10pt}"
+    "main{padding:0;border:0;border-radius:0}.report-toc{display:none}"
+    "h1,h2,h3{color:#111;break-after:avoid-page}h2{margin-top:1.2em}"
+    "a{color:inherit;text-decoration:none}a[href^='#']{color:inherit}"
+    "pre,table,tr,.badge{break-inside:avoid-page}pre{white-space:pre-wrap;overflow-wrap:anywhere}"
+    "thead{display:table-header-group}tfoot{display:table-footer-group}"
+    ".severity-critical,.severity-high,.severity-medium,.severity-low,.severity-info,"
+    ".status-confirmed,.status-not-observed,.status-needs-review,.confidence-high,.confidence-medium,.confidence-low{"
+    "color:#111;background:#fff;border:1px solid #777}"
+    "}"
+    "</style>"
+)
 
 
 def _metadata_badge(item: str) -> str | None:
@@ -70,7 +98,7 @@ def markdown_to_html(markdown: str) -> str:
         "<!doctype html>",
         '<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">',
         "<title>Internal Security Assessment Report</title>",
-        "<style>body{font:15px Arial,sans-serif;max-width:960px;margin:2rem auto;padding:0 1rem;color:#202124;background:#f7f9fb}main{background:#fff;padding:clamp(1rem,4vw,2.5rem);border:1px solid #dce2e8;border-radius:12px}h1,h2,h3{color:#16324f}h2{scroll-margin-top:1rem}a{color:#1359a6}.report-toc{padding:1rem 1.25rem;margin:1.5rem 0;background:#f0f4f8;border:1px solid #dce4ec;border-radius:8px}.report-toc h2{margin-top:0}.report-toc ul{margin-bottom:0;padding-left:1.2rem}.report-toc li{margin:.35rem 0}code,pre{background:#f4f6f8}pre{padding:12px;overflow:auto;border:1px solid #e2e7ed;border-radius:6px}table{border-collapse:collapse}th,td{border:1px solid #c7cdd4;padding:6px 10px;text-align:left}th{background:#edf1f5}.badge{display:inline-block;padding:.18rem .55rem;border-radius:999px;font-size:.82rem;font-weight:700;white-space:nowrap}.severity-critical,.severity-high{color:#842029;background:#f8d7da}.severity-medium{color:#664d03;background:#fff3cd}.severity-low,.severity-info{color:#084298;background:#cfe2ff}.status-confirmed{color:#146c43;background:#d1e7dd}.status-not-observed{color:#495057;background:#e2e3e5}.status-needs-review{color:#664d03;background:#fff3cd}.confidence-high{color:#146c43;background:#d1e7dd}.confidence-medium{color:#664d03;background:#fff3cd}.confidence-low{color:#495057;background:#e2e3e5}li{margin:.2rem 0}p{line-height:1.55}</style>",
+        REPORT_STYLES,
         "</head><body>",
         "<main>",
     ]

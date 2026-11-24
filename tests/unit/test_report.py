@@ -1,7 +1,12 @@
+import json
+import tempfile
 import unittest
+from dataclasses import replace
+from pathlib import Path
 
 from scopeproof.report import build_markdown
-from tests.support import finding, scope
+from scopeproof.service import compile_report
+from tests.support import ROOT, finding, scope
 
 
 class ReportTests(unittest.TestCase):
@@ -16,6 +21,58 @@ class ReportTests(unittest.TestCase):
         self.assertNotIn("SAMPLE-TOKEN-12345", report)
         self.assertNotIn("SESSION-12345", report)
         self.assertIn("[REDACTED]", report)
+
+    def test_compiled_reports_include_ordered_evidence_context(self):
+        authentication = json.loads(
+            (ROOT / "examples" / "evidence" / "authentication.json").read_text(encoding="utf-8")
+        )
+        configuration = json.loads(
+            (ROOT / "examples" / "evidence" / "configuration.json").read_text(encoding="utf-8")
+        )
+        authentication["summary"] = "Bearer AUTH-SUMMARY-123456 leaked"
+        configuration["summary"] = "api_key=CONFIG-SUMMARY-123456 ```"
+
+        with tempfile.TemporaryDirectory() as folder:
+            temporary = Path(folder)
+            evidence_directory = temporary / "evidence"
+            evidence_directory.mkdir()
+            (evidence_directory / "authentication.json").write_text(
+                json.dumps(authentication), encoding="utf-8"
+            )
+            (evidence_directory / "configuration.json").write_text(
+                json.dumps(configuration), encoding="utf-8"
+            )
+
+            for output_format in ("markdown", "html"):
+                report_path = temporary / f"report.{output_format}"
+                compile_report(
+                    ROOT / "examples" / "scope.json",
+                    evidence_directory,
+                    report_path,
+                    output_format=output_format,
+                )
+                report = report_path.read_text(encoding="utf-8")
+                if output_format == "markdown":
+                    configuration_start = report.index("## 1. Production diagnostic detail exposure")
+                    authentication_start = report.index("## 2. Login response account disclosure")
+                else:
+                    configuration_start = report.index('<h2 id="section-3">1. Production diagnostic detail exposure')
+                    authentication_start = report.index('<h2 id="section-4">2. Login response account disclosure')
+                configuration_section = report[configuration_start:authentication_start]
+                authentication_section = report[authentication_start:]
+
+                self.assertIn("EV-DEMO-CONFIG-001", configuration_section)
+                self.assertIn("2026-10-10T11:00:00+00:00", configuration_section)
+                self.assertIn("api_key=[REDACTED] ```", configuration_section)
+                self.assertIn("EV-DEMO-AUTH-001", authentication_section)
+                self.assertIn("2026-10-10T10:30:00+00:00", authentication_section)
+                self.assertIn("Bearer [REDACTED] leaked", authentication_section)
+                self.assertNotIn("CONFIG-SUMMARY-123456", report)
+                self.assertNotIn("AUTH-SUMMARY-123456", report)
+                if output_format == "markdown":
+                    self.assertIn("````text", configuration_section)
+                else:
+                    self.assertIn("<pre>", configuration_section)
 
 
 if __name__ == "__main__":

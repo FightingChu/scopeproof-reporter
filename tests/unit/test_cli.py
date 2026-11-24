@@ -3,7 +3,7 @@ import io
 import json
 import unittest
 
-from scopeproof.cli import main
+from scopeproof.cli import VALIDATION_SCHEMA_VERSION, main
 from tests.support import ROOT
 
 
@@ -28,6 +28,8 @@ class CliTests(unittest.TestCase):
         self.assertEqual(0, result, stderr)
         payload = json.loads(stdout)
         self.assertTrue(payload["valid"])
+        self.assertEqual(VALIDATION_SCHEMA_VERSION, payload["schema_version"])
+        self.assertRegex(payload["tool_version"], r"^\d+\.\d+\.\d+$")
         self.assertEqual(2, payload["evidence_count"])
         self.assertEqual({"high": 1, "medium": 1, "critical": 0, "info": 0, "low": 0}, payload["counts_by_severity"])
         self.assertEqual({"confirmed": 1, "needs-review": 1, "not-observed": 0}, payload["counts_by_status"])

@@ -12,6 +12,9 @@ from .models import ValidationError
 from .profiles import ProfileCatalog
 from .service import PROFILE_ROOT, PROJECT_ROOT, compile_report, load_profile, validate_inputs
 from .report import SEVERITY_ORDER
+from . import __version__
+
+VALIDATION_SCHEMA_VERSION = 1
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -59,6 +62,8 @@ def main(argv: list[str] | None = None) -> int:
                 )
                 payload = {
                     "assessment_id": scope.assessment_id,
+                    "schema_version": VALIDATION_SCHEMA_VERSION,
+                    "tool_version": __version__,
                     "valid": True,
                     "evidence_count": len(ordered),
                     "counts_by_severity": {

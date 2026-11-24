@@ -19,7 +19,7 @@ def _metadata_badge(item: str) -> str | None:
     status = re.fullmatch(r"Status: `([^`]+)`", item)
     if status and status.group(1) in STATUSES:
         value = status.group(1)
-        return f'Status: <span class="badge status-{value}">{html.escape(value.title())}</span>'
+        return f'Status: <span class="badge status-{value}">{value.title()}</span>'
     confidence = re.fullmatch(r"Confidence: `([^`]+)`", item)
     if confidence and confidence.group(1) in CONFIDENCES:
         value = confidence.group(1)
@@ -43,11 +43,24 @@ def _toc(markdown_lines: list[str]) -> tuple[list[str], dict[int, str]]:
         "<ul>",
     ]
     for line_number, title in headings:
-        output.append(
-            f'<li><a href="#{anchors[line_number]}">{html.escape(title)}</a></li>'
-        )
+        output.append(f'<li><a href="#{anchors[line_number]}">{_inline(title)}</a></li>')
     output.extend(["</ul>", "</nav>"])
     return output, anchors
+
+
+def _inline(markdown_text: str) -> str:
+    parts = re.split(r"(`[^`]*`|\*\*[^*]+\*\*|(?<!\*)\*[^*\n]+\*(?!\*))", markdown_text)
+    output: list[str] = []
+    for part in parts:
+        if part.startswith("`") and part.endswith("`"):
+            output.append(f"<code>{html.escape(part[1:-1])}</code>")
+        elif part.startswith("**") and part.endswith("**"):
+            output.append(f"<strong>{html.escape(part[2:-2])}</strong>")
+        elif part.startswith("*") and part.endswith("*"):
+            output.append(f"<em>{html.escape(part[1:-1])}</em>")
+        else:
+            output.append(html.escape(part))
+    return "".join(output)
 
 
 def markdown_to_html(markdown: str) -> str:
@@ -85,7 +98,7 @@ def markdown_to_html(markdown: str) -> str:
                 output.append("<table>")
                 in_table = True
             tag = "th" if cells[0] == "Severity" else "td"
-            output.append("<tr>" + "".join(f"<{tag}>{html.escape(cell)}</{tag}>" for cell in cells) + "</tr>")
+            output.append("<tr>" + "".join(f"<{tag}>{_inline(cell)}</{tag}>" for cell in cells) + "</tr>")
             continue
         if in_table:
             output.append("</table>")
@@ -96,20 +109,20 @@ def markdown_to_html(markdown: str) -> str:
                 in_list = True
             item = line[2:]
             badge = _metadata_badge(item)
-            output.append(f"<li>{badge if badge is not None else html.escape(item)}</li>")
+            output.append(f"<li>{badge if badge is not None else _inline(item)}</li>")
             continue
         if in_list:
             output.append("</ul>")
             in_list = False
         if line.startswith("### "):
-            output.append(f"<h3>{html.escape(line[4:])}</h3>")
+            output.append(f"<h3>{_inline(line[4:])}</h3>")
         elif line.startswith("## "):
             anchor = anchors[line_number]
-            output.append(f'<h2 id="{anchor}">{html.escape(line[3:])}</h2>')
+            output.append(f'<h2 id="{anchor}">{_inline(line[3:])}</h2>')
         elif line.startswith("# "):
-            output.append(f"<h1>{html.escape(line[2:])}</h1>")
+            output.append(f"<h1>{_inline(line[2:])}</h1>")
         elif line:
-            output.append(f"<p>{html.escape(line)}</p>")
+            output.append(f"<p>{_inline(line)}</p>")
     if in_list:
         output.append("</ul>")
     if in_table:

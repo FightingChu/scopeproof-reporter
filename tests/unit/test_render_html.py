@@ -36,6 +36,23 @@ class HtmlTests(unittest.TestCase):
         self.assertIn("&lt;script&gt;", rendered)
         self.assertNotIn("<script>", rendered)
 
+    def test_renders_common_inline_markdown(self):
+        rendered = markdown_to_html("## A **bold** *note* and `field`\n\nText with **strong**, *emphasis*, and `literal`.\n")
+        self.assertIn('<h2 id="section-1">A <strong>bold</strong> <em>note</em> and <code>field</code></h2>', rendered)
+        self.assertIn("Text with <strong>strong</strong>, <em>emphasis</em>, and <code>literal</code>.", rendered)
+
+    def test_inline_formatting_still_escapes_raw_html(self):
+        rendered = markdown_to_html("Text **<script>run()</script>** and `<img src=x>`\n")
+        self.assertNotIn("<script>", rendered)
+        self.assertNotIn("<img src=x>", rendered)
+        self.assertIn("&lt;script&gt;", rendered)
+        self.assertIn("&lt;img src=x&gt;", rendered)
+
+    def test_inline_code_keeps_markdown_delimiters_literal(self):
+        rendered = markdown_to_html("Use `**TOKEN**` as a literal value.\n")
+        self.assertIn("<code>**TOKEN**</code>", rendered)
+        self.assertNotIn("<strong>TOKEN</strong>", rendered)
+
 
 if __name__ == "__main__":
     unittest.main()
